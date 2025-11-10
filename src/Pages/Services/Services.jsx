@@ -9,7 +9,6 @@ const Services = () => {
       .then((res) => res.json())
       .then((data) => {
         setServices(data);
-        console.log(data);
       })
       .catch((err) => {
         console.log(err);
@@ -18,7 +17,7 @@ const Services = () => {
   return (
     <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-5">
       {services?.map((service) => (
-        <ServiceCard service={service} />
+        <ServiceCard key={service._id} service={service} />
       ))}
     </div>
   );

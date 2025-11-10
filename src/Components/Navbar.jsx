@@ -4,7 +4,7 @@ import { AuthContext } from "../context/AuthContext";
 
 const Navbar = () => {
   const { user, signOutUser } = useContext(AuthContext);
-  console.log(user);
+  // console.log(user);
 
   const handelSignOut = () => {
     signOutUser()
@@ -87,7 +87,7 @@ const Navbar = () => {
     </div>
   );
   return (
-    <div className="navbar bg-base-100 shadow-sm px-5">
+    <div className="navbar bg-base-100 shadow-sm px-10">
       <div className="navbar-start">
         <div className="dropdown">
           <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
@@ -116,8 +116,8 @@ const Navbar = () => {
         </div>
         <div>
           <img
-            className="max-w-[50px] min-h-[50px]"
-            src="https://i.ibb.co.com/Q7dvcYzr/images.png"
+            className="max-w-[60px] min-h-[50px]"
+            src="https://i.ibb.co.com/N6BjRvHK/pngtree-house-cleaning-logo-icon-design-vector-template-isolated-image-309859.jpg"
             alt=""
           />
         </div>
@@ -140,13 +140,17 @@ const Navbar = () => {
                 tabIndex="-1"
                 className="dropdown-content menu bg-base-100 rounded-box z-1 w-52 p-2 shadow-sm"
               >
-                <button onClick={handelSignOut} className="btn">LogOut</button>
+                <button onClick={handelSignOut} className="btn">
+                  LogOut
+                </button>
               </div>
             </div>
           </div>
         ) : (
           <div>
-            <Link to={'/login'} className="btn">Login</Link>
+            <Link to={"/login"} className="btn">
+              Login
+            </Link>
           </div>
         )}
       </div>
