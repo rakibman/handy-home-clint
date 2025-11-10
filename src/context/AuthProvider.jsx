@@ -32,7 +32,7 @@ const AuthProvider = ({ children }) => {
     return signInWithPopup(auth, googleProvider);
   };
 
-  const updateUserProfile = (displayName, photoURL) => {
+  const updateUserProfile = ({displayName, photoURL}) => {
     return updateProfile(auth.currentUser, { displayName, photoURL });
   };
 
@@ -59,6 +59,7 @@ const AuthProvider = ({ children }) => {
     signInWithGoogle,
     signOutUser,
     user,
+    setUser,
     loading,
   };
   return <AuthContext value={authInfo}>{children}</AuthContext>;

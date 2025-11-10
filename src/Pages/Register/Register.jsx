@@ -5,37 +5,59 @@ import toast from "react-hot-toast";
 
 const Register = () => {
   const navigate = useNavigate();
-  const { createUser, setUser, updateUser, user } = useContext(AuthContext);
+  const { createUser, setUser, updateUserProfile, user } =
+    useContext(AuthContext);
   const handelRegister = (e) => {
     e.preventDefault();
     const name = e.target.name.value;
     const email = e.target.email.value;
     const photo = e.target.photo.value;
     const password = e.target.password.value;
-    // const passwordRegex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*[\W_]).{6,}$/;
-    // if (password.length < 5) {
-    //   console.log('dfkjdfhksdfjhkdsjf');
-    //   return;
-    // }
+    const passwordRegex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*[\W_]).{6,}$/;
+    if (!passwordRegex.test(password)) {
+      toast.error(
+        "Password must be at least 6 characters, include uppercase, lowercase, and a special character"
+      );
+      return;
+    }
     createUser(email, password)
       .then((res) => {
-        setUser(res.user);
-        toast.success("signUp susses");
-        updateUser({ displayName: name, photoURL: photo });
-        setUser({
-          ...user,
-          displayName: name,
-          photoURL: photo,
-        });
-        navigate("/login");
+        console.log(res.user);
+        toast.success("Register success!");
+        updateUserProfile({ displayName: name, photoURL: photo });
+        setUser({ ...user, displayName: name, photoURL: photo });
+        navigate("/");
       })
       .catch((err) => {
-        toast.error(err.code);
+        const code = err.code;
+        if (code === "auth/email-already-in-use") {
+          toast.error("This email is already registered.");
+        } else if (code === "auth/invalid-email") {
+          toast.error("Invalid email format.");
+        } else if (code === "auth/weak-password") {
+          toast.error("Password should be at least 6 characters.");
+        } else if (code === "auth/missing-password") {
+          toast.error("Please enter your password.");
+        } else if (code === "auth/user-not-found") {
+          toast.error("No account found with this email.");
+        } else if (code === "auth/wrong-password") {
+          toast.error("Incorrect password.");
+        } else if (code === "auth/network-request-failed") {
+          toast.error("Network error. Please check your connection.");
+        } else if (code === "auth/too-many-requests") {
+          toast.error("Too many attempts. Try again later.");
+        } else if (code === "auth/invalid-value-(display-name)") {
+          toast.error("Invalid profile name.");
+        } else {
+          toast.error("Something went wrong. Please try again.");
+        }
+
+        console.error("Firebase Error:", err);
       });
   };
   return (
-    <div className="min-h-screen flex items-center justify-center bg-linear-to-br from-gray-100 to-blue-100 p-4">
-      <div className="w-full max-w-md bg-white rounded-2xl shadow-xl p-8">
+    <div className="shadow-2xl flex items-center justify-center ">
+      <div className="w-full max-w-md rounded-2xl shadow-xl p-8">
         <h2 className="text-3xl font-bold text-center text-blue-600 mb-6">
           Handy<span className="text-gray-800">Home</span> Login
         </h2>

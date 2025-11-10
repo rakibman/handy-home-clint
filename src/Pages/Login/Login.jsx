@@ -55,8 +55,8 @@ const Login = () => {
       });
   };
   return (
-    <div className="min-h-screen flex items-center justify-center bg-linear-to-br from-gray-100 to-blue-100 p-4">
-      <div className="w-full max-w-md bg-white rounded-2xl shadow-xl p-8">
+    <div className=" flex items-center justify-center  p-4">
+      <div className="w-full max-w-md  rounded-2xl shadow-xl p-8">
         <h2 className="text-3xl font-bold text-center text-blue-600 mb-6">
           Handy<span className="text-gray-800">Home</span> Login
         </h2>
