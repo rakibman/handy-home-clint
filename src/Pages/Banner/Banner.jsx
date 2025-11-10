@@ -7,7 +7,6 @@ import "swiper/css";
 import "swiper/css/pagination";
 import "swiper/css/navigation";
 
-
 // import required modules
 import { Autoplay, Pagination, Navigation } from "swiper/modules";
 import { Link } from "react-router";
@@ -17,10 +16,10 @@ const Banner = () => {
       <Swiper
         spaceBetween={30}
         centeredSlides={true}
-        // autoplay={{
-        //   delay: 2500,
-        //   disableOnInteraction: false,
-        // }}
+        autoplay={{
+          delay: 2500,
+          disableOnInteraction: false,
+        }}
         pagination={{
           clickable: true,
         }}

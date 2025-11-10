@@ -1,0 +1,28 @@
+import React, { useEffect, useState } from "react";
+import ServiceCard from "../../Components/ServiceCard";
+// import { motion } from "motion/react";
+
+const SortServices = () => {
+  const [services, serServices] = useState([]);
+  useEffect(() => {
+    fetch("http://localhost:3000/banner-services")
+      .then((res) => res.json())
+      .then((data) => {
+        serServices(data);
+      });
+  }, []);
+  return (
+    <div className="my-5">
+      <div>
+        <h1 className="text-3xl font-bold text-center">Our latest services</h1>
+      </div>
+      <div className="grid grid-cols-3 gap-5 my-10">
+        {services.map((service) => (
+          <ServiceCard key={service._id} service={service} />
+        ))}
+      </div>
+    </div>
+  );
+};
+
+export default SortServices;

@@ -5,6 +5,7 @@ import Login from "../Pages/Login/Login";
 import Services from "../Pages/Services/Services";
 import AddService from "../Pages/AddService/AddService";
 import Register from "../Pages/Register/Register";
+import CardDetals from "../Pages/CardDetals/CardDetals";
 
 export const router = createBrowserRouter([
   {
@@ -30,6 +31,10 @@ export const router = createBrowserRouter([
       {
         path: "/add-service",
         element: <AddService />,
+      },
+      {
+        path: "/service-detals/:id",
+        element: <CardDetals />,
       },
     ],
   },

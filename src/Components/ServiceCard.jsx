@@ -23,7 +23,7 @@ const ServiceCard = ({ service }) => {
         <div className="card-actions justify-between items-center mt-4">
           <div className="flex gap-4 text-sm text-base-content/60"></div>
           <Link
-            to={`/model-details/${_id}`}
+            to={`/service-detals/${_id}`}
             className="btn rounded-full bg-linear-to-r from-pink-500 to-red-600 hover:from-red-600 hover:to-pink-500 text-white w-full btn-sm"
           >
             View
