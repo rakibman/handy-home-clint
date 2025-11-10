@@ -1,26 +1,58 @@
-import React, { useContext } from "react";
+import React, { useContext, useState } from "react";
 import { AuthContext } from "../../context/AuthContext";
 import toast from "react-hot-toast";
 import { Link, useNavigate } from "react-router";
+import { FaEye, FaEyeSlash } from "react-icons/fa";
 
 const Login = () => {
   const navigate = useNavigate();
   const { signInWithGoogle, signInUser } = useContext(AuthContext);
+  const [show, setShow] = useState(true);
   const handelGoogleSignIn = () => {
     signInWithGoogle()
       .then(() => {
         toast.success("login success!");
         navigate("/");
       })
-      .catch((err) => {
-        console.log(err);
+      .catch((error) => {
+         if (error.code === "auth/invalid-email") {
+          toast.error("Invalid email address!");
+        } else if (error.code === "auth/user-disabled") {
+          toast.error("This account has been disabled.");
+        } else if (error.code === "auth/user-not-found") {
+          toast.error("No user found with this email.");
+        } else if (error.code === "auth/invalid-credential") {
+          toast.error("Incorrect password. Try again.");
+        } else if (error.code === "auth/email-already-in-use") {
+          toast.error("This email is already registered.");
+        } else if (error.code === "auth/weak-password") {
+          toast.error("Password should be at least 6 characters.");
+        } else if (error.code === "auth/network-request-failed") {
+          toast.error("Network error. Check your internet connection.");
+        } else if (error.code === "permission-denied") {
+          toast.error("You don’t have permission for this action.");
+        } else if (error.code === "unavailable") {
+          toast.error("Server unavailable. Try again later.");
+        } else if (error.code === "storage/unauthorized") {
+          toast.error("You are not authorized to upload this file.");
+        } else if (error.code === "storage/canceled") {
+          toast.error("Upload canceled.");
+        } else {
+          toast.error("Unknown error: " + error.message);
+        }
       });
   };
   const handelEmailLogin = (e) => {
     e.preventDefault();
     const email = e.target.email.value;
     const password = e.target.password.value;
-    console.log({ email, password });
+    const passwordRegex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*[\W_]).{6,}$/;
+    if (!passwordRegex.test(password)) {
+      toast.error(
+        "Password must be at least 6 characters, include uppercase, lowercase, and a special character"
+      );
+      return;
+    }
     signInUser(email, password)
       .then(() => {
         toast.success("login success");
@@ -82,13 +114,23 @@ const Login = () => {
             <label className="block text-sm font-medium text-gray-700 mb-1">
               Password
             </label>
-            <input
-              type="password"
-              name="password"
-              placeholder="Enter your password"
-              className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-400 outline-none"
-              required
-            />
+            <div>
+              <input
+                type={show?"password":"text"}
+                name="password"
+                placeholder="Enter your password"
+                className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-400 outline-none relative"
+                required
+              />
+              <button
+                onClick={(e) => {
+                  e.preventDefault(), setShow(!show);
+                }}
+                className="absolute mt-3 -ml-6"
+              >
+                {show ? <FaEye /> : <FaEyeSlash />}
+              </button>
+            </div>
           </div>
 
           {/* Remember & Forgot */}
