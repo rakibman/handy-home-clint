@@ -1,4 +1,3 @@
-import { isGenerator } from "motion";
 import React, { useEffect, useState } from "react";
 import { Link, useNavigate, useParams } from "react-router";
 import Swal from "sweetalert2";
@@ -15,8 +14,6 @@ const CardDetals = () => {
     category,
     description,
     thumbnail,
-    created_at,
-    Booked,
   } = service;
   const { id } = useParams();
   useEffect(() => {

@@ -1,13 +1,42 @@
 import React from "react";
-import { useLoaderData } from "react-router";
+import toast from "react-hot-toast";
+import { useLoaderData, useNavigate, useParams } from "react-router";
 
 const Update = () => {
+    const navigate = useNavigate()
+  const { id } = useParams();
   const data = useLoaderData();
   console.log(data);
 
-  const handelSubmit = (e) => {
+  const handleSubmit = (e) => {
     e.preventDefault();
-    // console.log(data);
+
+    const formData = {
+      name: e.target.name.value,
+      provider_email: e.target.email.value,
+      price: e.target.price.value,
+      service_Name: e.target.service_name.value,
+      category: e.target.category.value,
+      description: e.target.description.value,
+      thumbnail: e.target.thumbnail.value,
+      created_at: new Date(),
+      Booked: 0,
+    };
+
+    fetch(`http://localhost:3000/services/${id}`, {
+      method: "PUT",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(formData),
+    })
+      .then(() => {
+        toast.success("Successfully updated!");
+        navigate('/services')
+      })
+      .catch((err) => {
+        console.log(err);
+      });
   };
   return (
     <div className="card border border-gray-200 bg-base-100 w-full  mx-auto shadow-2xl rounded-2xl">
@@ -15,7 +44,7 @@ const Update = () => {
         <h2 className="text-2xl font-bold text-center mb-6">
           Update Your Services
         </h2>
-        <form onSubmit={handelSubmit} className="space-y-4 ">
+        <form onSubmit={handleSubmit} className="space-y-4 ">
           <div className="grid grid-cols-3 gap-5">
             {/* Name Field */}
             <div>
