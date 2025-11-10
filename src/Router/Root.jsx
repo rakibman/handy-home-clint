@@ -6,6 +6,7 @@ import Services from "../Pages/Services/Services";
 import AddService from "../Pages/AddService/AddService";
 import Register from "../Pages/Register/Register";
 import CardDetals from "../Pages/CardDetals/CardDetals";
+import Update from "../Pages/Update/Update";
 
 export const router = createBrowserRouter([
   {
@@ -35,6 +36,12 @@ export const router = createBrowserRouter([
       {
         path: "/service-detals/:id",
         element: <CardDetals />,
+      },
+      {
+        path: "/update/:id",
+        element: <Update />,
+        loader: ({ params }) =>
+          fetch(`http://localhost:3000/services/${params.id}`),
       },
     ],
   },

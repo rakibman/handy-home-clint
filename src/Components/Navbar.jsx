@@ -22,7 +22,7 @@ const Navbar = () => {
         className={({ isActive }) =>
           isActive
             ? "font-bold border-b-2 border-orange-500 text-orange-500 pb-1"
-            : "text-gray-700 hover:text-orange-500 transition font-semibold"
+            : "text-white hover:text-orange-500 transition font-semibold"
         }
       >
         Home
@@ -32,7 +32,7 @@ const Navbar = () => {
         className={({ isActive }) =>
           isActive
             ? "font-bold border-b-2 border-orange-500 text-orange-500 pb-1"
-            : "text-gray-700 hover:text-orange-500 transition font-semibold"
+            : "text-white hover:text-orange-500 transition font-semibold"
         }
       >
         Services
@@ -45,7 +45,7 @@ const Navbar = () => {
             className={({ isActive }) =>
               isActive
                 ? "font-bold border-b-2 border-orange-500 text-orange-500 pb-1"
-                : "text-gray-700 hover:text-orange-500 transition font-semibold"
+                : "text-white hover:text-orange-500 transition font-semibold"
             }
           >
             My Services
@@ -55,7 +55,7 @@ const Navbar = () => {
             className={({ isActive }) =>
               isActive
                 ? "font-bold border-b-2 border-orange-500 text-orange-500 pb-1"
-                : "text-gray-700 hover:text-orange-500 transition font-semibold"
+                : "text-white hover:text-orange-500 transition font-semibold"
             }
           >
             Add Service
@@ -65,7 +65,7 @@ const Navbar = () => {
             className={({ isActive }) =>
               isActive
                 ? "font-bold border-b-2 border-orange-500 text-orange-500 pb-1"
-                : "text-gray-700 hover:text-orange-500 transition font-semibold"
+                : "text-white hover:text-orange-500 transition font-semibold"
             }
           >
             My Bookings
@@ -75,7 +75,7 @@ const Navbar = () => {
             className={({ isActive }) =>
               isActive
                 ? "font-bold border-b-2 border-orange-500 text-orange-500 pb-1"
-                : "text-gray-700 hover:text-orange-500 transition font-semibold"
+                : "text-white hover:text-orange-500 transition font-semibold"
             }
           >
             Profile
