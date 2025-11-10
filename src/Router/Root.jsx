@@ -6,7 +6,8 @@ import Services from "../Pages/Services/Services";
 import AddService from "../Pages/AddService/AddService";
 import Register from "../Pages/Register/Register";
 import CardDetals from "../Pages/CardDetals/CardDetals";
-import Update from "../Pages/Update/Update";
+import Update from "../Pages/ServiceUpdate/Update";
+import Profile from "../Pages/Profile/Profile";
 
 export const router = createBrowserRouter([
   {
@@ -20,6 +21,10 @@ export const router = createBrowserRouter([
       {
         path: "/login",
         element: <Login />,
+      },
+      {
+        path: "/profile",
+        element: <Profile />,
       },
       {
         path: "/register",

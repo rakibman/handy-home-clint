@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from "react";
 import ServiceCard from "../../Components/ServiceCard";
-import { div } from "motion/react-client";
 
 const Services = () => {
   const [services, setServices] = useState([]);
