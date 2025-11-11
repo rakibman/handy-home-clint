@@ -8,14 +8,19 @@ const MyBooking = () => {
       .then((res) => res.json())
       .then((data) => {
         // console.log(data);
-        setBooking(data)
+        setBooking(data);
       });
   }, []);
   return (
-    <div className="grid grid-cols-1 space-y-3">
-      {booking?.map((booked) => (
-        <BookingCard booked={booked} />
-      ))}
+    <div>
+      <h1 className="text-4xl py-5 font-bold text-center">
+        Your Bookings 
+      </h1>
+      <div className="grid grid-cols-1 space-y-3">
+        {booking?.map((booked) => (
+          <BookingCard booked={booked} />
+        ))}
+      </div>
     </div>
   );
 };

@@ -31,12 +31,14 @@ const ServiceDetals = () => {
 
   const handelBooking = (e) => {
     const bayerName = e.target.name.value;
-    const bayerEmail = e.target.name.value;
+    const bayerEmail = e.target.email.value;
     e.preventDefault();
     const formData = {
       name: bayerName,
       price: price,
-      email: bayerEmail,
+      Service_name: service_Name,
+      Bayer_email: bayerEmail,
+      Provider_email: provider_email,
       thumbnail: thumbnail,
       booked_date: new Date(),
     };
@@ -162,7 +164,7 @@ const ServiceDetals = () => {
                 Email Address
               </label>
               <input
-              defaultValue={user.email}
+                defaultValue={user.email}
                 type="email"
                 id="email"
                 name="email"
