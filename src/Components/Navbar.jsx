@@ -61,7 +61,7 @@ const Navbar = () => {
             Add Service
           </NavLink>
           <NavLink
-            to="/my-bokkings"
+            to="/my-bookings"
             className={({ isActive }) =>
               isActive
                 ? "font-bold border-b-2 border-orange-500 text-orange-500 pb-1"

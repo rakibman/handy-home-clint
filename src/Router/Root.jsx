@@ -5,9 +5,12 @@ import Login from "../Pages/Login/Login";
 import Services from "../Pages/Services/Services";
 import AddService from "../Pages/AddService/AddService";
 import Register from "../Pages/Register/Register";
-import CardDetals from "../Pages/CardDetals/CardDetals";
 import Update from "../Pages/ServiceUpdate/Update";
 import Profile from "../Pages/Profile/Profile";
+import MyServices from "../Pages/MyServices/MyServices";
+import ServiceDetals from "../Pages/ServiceDetals/ServiceDetals";
+import Error from "../Components/Error";
+import MyBooking from "../Pages/MyBooking/MyBooking";
 
 export const router = createBrowserRouter([
   {
@@ -35,12 +38,20 @@ export const router = createBrowserRouter([
         element: <Services />,
       },
       {
+        path: "/my-services",
+        element: <MyServices />,
+      },
+      {
+        path: "/my-bookings",
+        element: <MyBooking />,
+      },
+      {
         path: "/add-service",
         element: <AddService />,
       },
       {
         path: "/service-detals/:id",
-        element: <CardDetals />,
+        element: <ServiceDetals />,
       },
       {
         path: "/update/:id",
@@ -48,6 +59,14 @@ export const router = createBrowserRouter([
         loader: ({ params }) =>
           fetch(`http://localhost:3000/services/${params.id}`),
       },
+      {
+        path: "*",
+        element: <Error />,
+      },
     ],
+  },
+  {
+    path: "*",
+    element: <Error />,
   },
 ]);

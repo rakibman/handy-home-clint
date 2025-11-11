@@ -1,8 +1,10 @@
 import React, { useEffect, useState } from "react";
 import { Link, useNavigate, useParams } from "react-router";
 import Swal from "sweetalert2";
+import { SyncLoader } from "react-spinners";
+import toast from "react-hot-toast";
 
-const CardDetals = () => {
+const ServiceDetals = () => {
   const navigate = useNavigate();
   const [service, setService] = useState({});
   const [loading, setLoading] = useState(true);
@@ -45,7 +47,7 @@ const CardDetals = () => {
           .then((res) => res.json())
           .then((data) => {
             console.log(data);
-            navigate("/all-models");
+            navigate("/services");
 
             Swal.fire({
               title: "Deleted!",
@@ -59,8 +61,34 @@ const CardDetals = () => {
       }
     });
   };
+  const handelBooking = (e) => {
+    e.preventDefault();
+    const formData = {
+      name: name,
+      price: price,
+      thumbnail: thumbnail,
+    };
+    console.log(formData);
+    fetch("http://localhost:3000/my-bookings", {
+      method: "POST",
+      headers: {
+        "content-Type": "application/json",
+      },
+      body: JSON.stringify(formData),
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        toast.success("successfully added!");
+        console.log(data);
+      })
+      .catch((err) => console.log(err));
+  };
   if (loading) {
-    return <p>loading...</p>;
+    return (
+      <p>
+        <SyncLoader />
+      </p>
+    );
   }
   return (
     <div className="max-w-5xl mx-auto p-6 bg-white shadow-md rounded-lg mt-10 grid grid-cols-5 gap-4">
@@ -99,10 +127,16 @@ const CardDetals = () => {
 
         {/* Book Button */}
         <div className="mt-6 flex gap-3">
-          <button className="bg-orange-500 hover:bg-orange-600 text-white font-semibold py-2 px-6 rounded-lg transition">
+          <button
+            onClick={handelBooking}
+            className="bg-orange-500 hover:bg-orange-600 text-white font-semibold py-2 px-6 rounded-lg transition"
+          >
             Book Now
           </button>
-          <Link to={`/update/${id}`} className="bg-orange-500 hover:bg-orange-600 text-white font-semibold py-2 px-6 rounded-lg transition">
+          <Link
+            to={`/update/${id}`}
+            className="bg-orange-500 hover:bg-orange-600 text-white font-semibold py-2 px-6 rounded-lg transition"
+          >
             Update
           </Link>
           <button
@@ -117,4 +151,4 @@ const CardDetals = () => {
   );
 };
 
-export default CardDetals;
+export default ServiceDetals;

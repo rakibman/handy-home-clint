@@ -11,6 +11,9 @@ const SortServices = () => {
         serServices(data);
       });
   }, []);
+  if (!services) {
+    return <p>loading...</p>;
+  }
   return (
     <div className="my-5">
       <div>
