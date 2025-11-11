@@ -65,7 +65,7 @@ const BookingCard = ({ booked }) => {
       </div>
 
       <button onClick={handleDlete} className="btn ">
-        delete
+        Cancel
       </button>
     </div>
   );
