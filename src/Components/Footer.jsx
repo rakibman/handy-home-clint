@@ -64,7 +64,7 @@ const Footer = () => {
       <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-4 gap-10">
         {/* Brand Section */}
         <div>
-          <h2 className="text-2xl font-bold text-white mb-3">HomeCare Pro</h2>
+          <h2 className="text-2xl font-bold text-white mb-3">Handy Home</h2>
           <p className="text-sm leading-relaxed">
             Your one-stop destination for the best deals on fashion,
             electronics, and home essentials. Shop smart, live better.

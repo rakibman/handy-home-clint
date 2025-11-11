@@ -84,7 +84,7 @@ const ServiceDetals = () => {
     })
       .then(() => {
         toast.success("successfully added!");
-        navigate('/my-bookings')
+        navigate("/my-bookings");
       })
       .catch((err) => console.log(err));
   };
@@ -154,15 +154,28 @@ const ServiceDetals = () => {
           </button>
 
           {user ? (
-            <Link
-              to={`/update/${id}`}
-              className="bg-orange-500 hover:bg-orange-600 text-white font-semibold py-2 px-6 rounded-lg transition"
-            >
-              Update
-            </Link>
+            provider_email === user.email ? (
+              <Link
+                to={`/update/${id}`}
+                className="bg-orange-500 hover:bg-orange-600 text-white font-semibold py-2 px-6 rounded-lg transition"
+              >
+                Update
+              </Link>
+            ) : (
+              <button
+                disabled
+                className="bg-gray-400 cursor-not-allowed text-white font-semibold py-2 px-6 rounded-lg transition"
+                onClick={() =>
+                  alert("You cannot update another provider’s service.")
+                }
+              >
+                Update
+              </button>
+            )
           ) : (
             ""
           )}
+
           {user ? (
             <button
               onClick={() => handleDlete(id)}
