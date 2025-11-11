@@ -28,41 +28,7 @@ const ServiceDetals = () => {
         setLoading(false);
       });
   }, [id]);
-  const handleDlete = (id) => {
-    console.log(id);
-    Swal.fire({
-      title: "Are you sure?",
-      text: "You won't be able to revert this!",
-      icon: "warning",
-      showCancelButton: true,
-      confirmButtonColor: "#3085d6",
-      cancelButtonColor: "#d33",
-      confirmButtonText: "Yes, delete it!",
-    }).then((result) => {
-      if (result.isConfirmed) {
-        fetch(`http://localhost:3000/services/${id}`, {
-          method: "DELETE",
-          headers: {
-            "Content-Type": "application/json",
-          },
-        })
-          .then((res) => res.json())
-          .then((data) => {
-            console.log(data);
-            navigate("/services");
 
-            Swal.fire({
-              title: "Deleted!",
-              text: "Your file has been deleted.",
-              icon: "success",
-            });
-          })
-          .catch((err) => {
-            console.log(err);
-          });
-      }
-    });
-  };
   const handelBooking = (e) => {
     const bayerName = e.target.name.value;
     const bayerEmail = e.target.name.value;
@@ -152,40 +118,6 @@ const ServiceDetals = () => {
           >
             Book Now
           </button>
-
-          {user ? (
-            provider_email === user.email ? (
-              <Link
-                to={`/update/${id}`}
-                className="bg-orange-500 hover:bg-orange-600 text-white font-semibold py-2 px-6 rounded-lg transition"
-              >
-                Update
-              </Link>
-            ) : (
-              <button
-                disabled
-                className="bg-gray-400 cursor-not-allowed text-white font-semibold py-2 px-6 rounded-lg transition"
-                onClick={() =>
-                  alert("You cannot update another provider’s service.")
-                }
-              >
-                Update
-              </button>
-            )
-          ) : (
-            ""
-          )}
-
-          {user ? (
-            <button
-              onClick={() => handleDlete(id)}
-              className="bg-orange-500 hover:bg-orange-600 text-white font-semibold py-2 px-6 rounded-lg transition"
-            >
-              Delete
-            </button>
-          ) : (
-            ""
-          )}
         </div>
       </div>
 
@@ -230,6 +162,7 @@ const ServiceDetals = () => {
                 Email Address
               </label>
               <input
+              defaultValue={user.email}
                 type="email"
                 id="email"
                 name="email"
