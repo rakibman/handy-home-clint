@@ -2,25 +2,38 @@ import React, { useContext } from "react";
 import { AuthContext } from "../../context/AuthContext";
 
 const Profile = () => {
-  const { user } = useContext(AuthContext);
-  console.log(user);
+  const { user, updateUserProfile, setUser } = useContext(AuthContext);
+  const updateProfileFunc = (e) => {
+    e.preventDefault();
+    const name = e.target.name.value;
+    const photo = e.target.photo.value;
+    console.log({ name, photo });
+    updateUserProfile({ displayName: name, photoURL: photo });
+    setUser({ ...user, displayName: name, photoURL: photo });
+  };
 
-  if(!user){
-    return <p>loading...</p>
+  if (!user) {
+    return <p>loading...</p>;
   }
   return (
     <div className="flex gap-20 p-3 max-w-[900px] mx-auto ">
       <div className="w-1/2 profile-bg px-3 py-3 rounded-xl">
-          <img className="my-5 mx-auto rounded-full" src={user?.photoURL} alt="" />
-        
+        <img
+          className="my-5 mx-auto rounded-full"
+          src={user?.photoURL}
+          alt=""
+        />
+
         <div className="text-center">
           <h1>{user?.displayName}</h1>
           <p>{user?.email}</p>
         </div>
       </div>
       <div className="w-1/ profile-bg-2 px-3 py-3 rounded-xl">
-        <h1 className="text-3xl text-center font-semibold py-3">Update Profile</h1>
-        <form  className="space-y-2">
+        <h1 className="text-3xl text-center font-semibold py-3">
+          Update Profile
+        </h1>
+        <form onSubmit={updateProfileFunc} className="space-y-2">
           {/* name  */}
           <div>
             <label className="block text-sm font-medium text-gray-700 mb-1">
