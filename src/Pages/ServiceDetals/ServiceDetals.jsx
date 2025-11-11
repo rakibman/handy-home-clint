@@ -72,6 +72,7 @@ const ServiceDetals = () => {
       price: price,
       email: bayerEmail,
       thumbnail: thumbnail,
+      booked_date: new Date(),
     };
     console.log(formData);
     fetch("http://localhost:3000/my-bookings", {
