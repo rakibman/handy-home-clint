@@ -1,5 +1,5 @@
 import React from "react";
-import { Link, useNavigate, useParams } from "react-router";
+import { Link, useNavigate } from "react-router";
 import Swal from "sweetalert2";
 
 const MyServiceCard = ({ service }) => {

@@ -3,6 +3,7 @@ import BookingCard from "../../Components/BookingCard";
 
 const MyBooking = () => {
   const [booking, setBooking] = useState([]);
+
   useEffect(() => {
     fetch("http://localhost:3000/my-bookings")
       .then((res) => res.json())
@@ -11,14 +12,13 @@ const MyBooking = () => {
         setBooking(data);
       });
   }, []);
+
   return (
     <div>
-      <h1 className="text-4xl py-5 font-bold text-center">
-        Your Bookings 
-      </h1>
+      <h1 className="text-4xl py-5 font-bold text-center">Your Bookings</h1>
       <div className="grid grid-cols-1 space-y-3">
         {booking?.map((booked) => (
-          <BookingCard booked={booked} />
+          <BookingCard key={booked._id} booked={booked} />
         ))}
       </div>
     </div>
