@@ -1,10 +1,13 @@
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { Link, useNavigate, useParams } from "react-router";
 import Swal from "sweetalert2";
 import { SyncLoader } from "react-spinners";
 import toast from "react-hot-toast";
+import { AuthContext } from "../../context/AuthContext";
 
 const ServiceDetals = () => {
+  const { user } = useContext(AuthContext);
+  const [book, setBook] = useState(false);
   const navigate = useNavigate();
   const [service, setService] = useState({});
   const [loading, setLoading] = useState(true);
@@ -62,10 +65,13 @@ const ServiceDetals = () => {
     });
   };
   const handelBooking = (e) => {
+    const bayerName = e.target.name.value;
+    const bayerEmail = e.target.name.value;
     e.preventDefault();
     const formData = {
-      name: name,
+      name: bayerName,
       price: price,
+      email: bayerEmail,
       thumbnail: thumbnail,
     };
     console.log(formData);
@@ -76,10 +82,9 @@ const ServiceDetals = () => {
       },
       body: JSON.stringify(formData),
     })
-      .then((res) => res.json())
-      .then((data) => {
+      .then(() => {
         toast.success("successfully added!");
-        console.log(data);
+        navigate('/my-bookings')
       })
       .catch((err) => console.log(err));
   };
@@ -127,26 +132,116 @@ const ServiceDetals = () => {
 
         {/* Book Button */}
         <div className="mt-6 flex gap-3">
+          {/* Open the modal using document.getElementById('ID').showModal() method */}
+
           <button
-            onClick={handelBooking}
+            onClick={() => {
+              if (provider_email === user.email) {
+                toast.error(
+                  '"You are the provider, cannot book your own service"'
+                );
+              } else {
+                if (user) {
+                  document.getElementById("my_modal_5").showModal();
+                } else {
+                  navigate("/login");
+                }
+              }
+            }}
             className="bg-orange-500 hover:bg-orange-600 text-white font-semibold py-2 px-6 rounded-lg transition"
           >
             Book Now
           </button>
-          <Link
-            to={`/update/${id}`}
-            className="bg-orange-500 hover:bg-orange-600 text-white font-semibold py-2 px-6 rounded-lg transition"
-          >
-            Update
-          </Link>
-          <button
-            onClick={() => handleDlete(id)}
-            className="bg-orange-500 hover:bg-orange-600 text-white font-semibold py-2 px-6 rounded-lg transition"
-          >
-            Delete
-          </button>
+
+          {user ? (
+            <Link
+              to={`/update/${id}`}
+              className="bg-orange-500 hover:bg-orange-600 text-white font-semibold py-2 px-6 rounded-lg transition"
+            >
+              Update
+            </Link>
+          ) : (
+            ""
+          )}
+          {user ? (
+            <button
+              onClick={() => handleDlete(id)}
+              className="bg-orange-500 hover:bg-orange-600 text-white font-semibold py-2 px-6 rounded-lg transition"
+            >
+              Delete
+            </button>
+          ) : (
+            ""
+          )}
         </div>
       </div>
+
+      {/* modal section  */}
+      <dialog id="my_modal_5" className="modal modal-bottom sm:modal-middle">
+        <div className="modal-box">
+          {/* <div className=" bg-linear-to-br from-cyan-50 via-cyan-200 to-cyan-400 flex items-center justify-center p-6">
+            
+          </div> */}
+          <form
+            onSubmit={handelBooking}
+            className=" shadow-xl rounded-2xl p-8 w-full max-w-md space-y-6 bg-linear-to-br from-cyan-50 via-cyan-200 to-cyan-400"
+          >
+            <h2 className="text-2xl font-bold text-gray-800 text-center">
+              Book a Service
+            </h2>
+
+            {/* Name Field */}
+            <div>
+              <label
+                className="block text-gray-700 font-medium mb-1"
+                htmlFor="name"
+              >
+                Full Name
+              </label>
+              <input
+                type="text"
+                id="name"
+                name="name"
+                required
+                placeholder="Enter your full name"
+                className="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-cyan-400"
+              />
+            </div>
+
+            {/* Email Field */}
+            <div>
+              <label
+                className="block text-gray-700 font-medium mb-1"
+                htmlFor="email"
+              >
+                Email Address
+              </label>
+              <input
+                type="email"
+                id="email"
+                name="email"
+                required
+                placeholder="Enter your email"
+                className="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-cyan-400"
+              />
+            </div>
+
+            {/* Submit Button */}
+            <button
+              type="submit"
+              className="w-full py-3 bg-linear-to-r from-cyan-500 to-blue-500 text-white font-semibold rounded-lg shadow-md hover:shadow-lg transition-all"
+            >
+              Confirm Booking
+            </button>
+          </form>
+          <div className="modal-action">
+            <form method="dialog">
+              {/* if there is a button in form, it will close the modal */}
+              <button className="btn">Close</button>
+            </form>
+          </div>
+        </div>
+      </dialog>
     </div>
   );
 };
