@@ -7,7 +7,6 @@ import { AuthContext } from "../../context/AuthContext";
 
 const ServiceDetals = () => {
   const { user } = useContext(AuthContext);
-  const [book, setBook] = useState(false);
   const navigate = useNavigate();
   const [service, setService] = useState({});
   const [loading, setLoading] = useState(true);
