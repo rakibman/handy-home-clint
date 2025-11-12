@@ -11,6 +11,7 @@ const ServiceDetals = () => {
   const [service, setService] = useState({});
   const [loading, setLoading] = useState(true);
   const {
+    _id,
     name,
     provider_email,
     price,
@@ -29,6 +30,15 @@ const ServiceDetals = () => {
       });
   }, [id]);
 
+  useEffect(() => {
+    fetch(`http://localhost:3000/review/${id}`)
+      .then((res) => res.json())
+      .then((data) => {
+        console.log(data);
+        // setService(data);
+        // setLoading(false);
+      });
+  }, [id]);
   const handelBooking = (e) => {
     const bayerName = e.target.name.value;
     const bayerEmail = e.target.email.value;
@@ -36,6 +46,7 @@ const ServiceDetals = () => {
     const formData = {
       name: bayerName,
       price: price,
+      service_id: _id,
       Service_name: service_Name,
       Bayer_email: bayerEmail,
       Provider_email: provider_email,
@@ -164,7 +175,7 @@ const ServiceDetals = () => {
                 Email Address
               </label>
               <input
-                defaultValue={user.email}
+                defaultValue={user?.email}
                 type="email"
                 id="email"
                 name="email"

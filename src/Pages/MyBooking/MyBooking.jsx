@@ -1,8 +1,10 @@
-import React, { useEffect, useState } from "react";
+import React, {  useEffect, useState } from "react";
 import BookingCard from "../../Components/BookingCard";
+
 
 const MyBooking = () => {
   const [booking, setBooking] = useState([]);
+  
 
   useEffect(() => {
     fetch("http://localhost:3000/my-bookings")
@@ -13,12 +15,19 @@ const MyBooking = () => {
       });
   }, []);
 
+
+  if (!booking) {
+    return <p>loading...</p>;
+  }
   return (
     <div>
       <h1 className="text-4xl py-5 font-bold text-center">Your Bookings</h1>
       <div className="grid grid-cols-1 space-y-3">
         {booking?.map((booked) => (
-          <BookingCard key={booked._id} booked={booked} />
+          <BookingCard
+            key={booked._id}
+            booked={booked}
+          />
         ))}
       </div>
     </div>

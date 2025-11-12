@@ -35,14 +35,16 @@ const Services = () => {
   // search by name
   const handleSearch = (e) => {
     e.preventDefault();
-    const search_text = e.target.serarch``.value;
-    console.log(search_text);
+    const search_text = e.target.search.value 
 
-    // fetch(`https://3d-model-server.vercel.app/search?search=${search_text}`)
-    //   .then((res) => res.json())
-    //   .then((data) => {
-    //     console.log(data);
-    //   });
+    fetch(`http://localhost:3000/search?search=${search_text}`)
+      .then((res) => res.json())
+      .then((data) => {
+        setServices(data);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
   };
   return (
     <div>
@@ -50,12 +52,12 @@ const Services = () => {
       <div className="flex justify-between items-center w-6xl">
         <form onSubmit={handleSearch} className="flex gap-3">
           <input
-            name="serarch"
+            name="search"
             type="text"
             placeholder="Type here"
             className="input w-30"
           />
-          <button role="submit" onClick={handelMinMaxPrice} className="btn">
+          <button role="submit" className="btn">
             search
           </button>
         </form>
