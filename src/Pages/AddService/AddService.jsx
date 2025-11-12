@@ -9,7 +9,7 @@ const AddService = () => {
     const formData = {
       name: e.target.name.value,
       provider_email: user?.email,
-      price: e.target.price.value,
+      price: Number(e.target.price.value),
       service_Name: e.target.service_name.value,
       category: e.target.category.value,
       description: e.target.description.value,

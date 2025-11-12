@@ -3,7 +3,7 @@ import toast from "react-hot-toast";
 import { useLoaderData, useNavigate, useParams } from "react-router";
 
 const Update = () => {
-    const navigate = useNavigate()
+  const navigate = useNavigate();
   const { id } = useParams();
   const data = useLoaderData();
   console.log(data);
@@ -14,7 +14,7 @@ const Update = () => {
     const formData = {
       name: e.target.name.value,
       provider_email: e.target.email.value,
-      price: e.target.price.value,
+      price: Number(e.target.price.value),
       service_Name: e.target.service_name.value,
       category: e.target.category.value,
       description: e.target.description.value,
@@ -32,7 +32,7 @@ const Update = () => {
     })
       .then(() => {
         toast.success("Successfully updated!");
-        navigate('/services')
+        navigate("/services");
       })
       .catch((err) => {
         console.log(err);

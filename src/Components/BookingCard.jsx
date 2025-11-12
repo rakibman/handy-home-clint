@@ -38,7 +38,7 @@ const BookingCard = ({ booked }) => {
     });
   };
   return (
-    <div className=" flex gap-40 bg-base-100 px-5 py-3 rounded-xl items-center">
+    <div className=" flex gap-40 bg-base-100 px-5 py-3 rounded-xl justify-between items-center ">
       <div>
         <img className="size-10 rounded-box" src={booked.thumbnail} />
         <div className="text-xs uppercase font-semibold opacity-60 py-2">

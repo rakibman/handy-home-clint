@@ -4,8 +4,7 @@ import Swal from "sweetalert2";
 
 const MyServiceCard = ({ service }) => {
   const navigate = useNavigate();
-  const { thumbnail, category, description, _id, service_Name, price } =
-    service;
+  const { thumbnail, category, _id, service_Name, price } = service;
 
   const handleDlete = (id) => {
     Swal.fire({
@@ -42,7 +41,7 @@ const MyServiceCard = ({ service }) => {
     });
   };
   return (
-    <tr className="w-[1000px] bg-white/25 backdrop-blur-xl border border-white/40 shadow-lg text-black flex items-center rounded-xl">
+    <tr className="w-[900px] bg-white/25 backdrop-blur-xl border border-white/40 shadow-lg text-black flex justify-between items-center rounded-xl">
       <td className="w-1/3">
         <div className="flex items-center gap-3 ">
           <div className="avatar">
@@ -60,7 +59,6 @@ const MyServiceCard = ({ service }) => {
       </td>
       <td className="w-1/3">
         <p className="underline">{category}</p>
-        <p>{description}</p>
       </td>
       <th className="w-1/3 text-right">
         <Link to={`/update/${_id}`} className="btn btn-ghost btn-xs">

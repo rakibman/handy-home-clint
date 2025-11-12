@@ -19,7 +19,7 @@ const Profile = () => {
     <div className="flex gap-20 p-3 max-w-[900px] mx-auto ">
       <div className="w-1/2 profile-bg px-3 py-3 rounded-xl">
         <img
-          className="my-5 mx-auto rounded-full"
+          className="my-5 mx-auto rounded-full w-30 h-30"
           src={user?.photoURL}
           alt=""
         />
@@ -40,6 +40,7 @@ const Profile = () => {
               Name
             </label>
             <input
+            defaultValue={user.displayName}
               type="text"
               name="name"
               placeholder="Enter your name"
@@ -53,6 +54,8 @@ const Profile = () => {
               Photo URL
             </label>
             <input
+            defaultValue={user.photoURL}
+            
               type="text"
               name="photo"
               placeholder="Enter your Photo"
@@ -65,7 +68,7 @@ const Profile = () => {
             type="submit"
             className="w-full bg-blue-600 text-white py-2 my-2 rounded-lg hover:bg-blue-700 transition-all duration-200"
           >
-            Register
+            Submit
           </button>
         </form>
       </div>
