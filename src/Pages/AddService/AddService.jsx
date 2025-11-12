@@ -25,14 +25,13 @@ const AddService = () => {
       body: JSON.stringify(formData),
     })
       .then((res) => res.json())
-      .then((data) => {
+      .then(() => {
         toast.success("successfully added!");
-        console.log(data);
       })
       .catch((err) => console.log(err));
   };
   return (
-    <div className="card border border-gray-200 bg-gradient-to-br from-indigo-400 via-purple-400 to-blue-400 w-full  mx-auto shadow-2xl rounded-2xl">
+    <div className="card border border-gray-200 bg-linear-to-br from-indigo-400 via-purple-400 to-blue-400 w-full  mx-auto shadow-2xl rounded-2xl">
       <div className="card-body p-6 relative">
         <h2 className="text-2xl font-bold text-center mb-6">
           Add Your Service

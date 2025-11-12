@@ -4,7 +4,6 @@ import Swal from "sweetalert2";
 import { SyncLoader } from "react-spinners";
 import toast from "react-hot-toast";
 import { AuthContext } from "../../context/AuthContext";
-import { div } from "motion/react-client";
 import Reviews from "../Reviews/Reviews";
 
 const ServiceDetals = () => {
