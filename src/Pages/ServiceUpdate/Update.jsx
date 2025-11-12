@@ -20,7 +20,7 @@ const Update = () => {
       description: e.target.description.value,
       thumbnail: e.target.thumbnail.value,
       created_at: new Date(),
-      Booked: 0,
+      Review: 0,
     };
 
     fetch(`http://localhost:3000/services/${id}`, {

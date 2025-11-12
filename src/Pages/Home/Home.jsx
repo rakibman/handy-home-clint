@@ -10,7 +10,7 @@ const Home = () => {
       <section className="max-w-[1200px] my-auto mx-auto min-h-[350px] bg-gray-300 ">
         <Banner />
       </section>
-      <section className="max-w-[1100px] mx-auto">
+      <section className="max-w-[1000px] mx-auto">
         <SortServices />
       </section>
     </div>

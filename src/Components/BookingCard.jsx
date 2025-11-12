@@ -6,8 +6,8 @@ import { AuthContext } from "../context/AuthContext";
 import { Link } from "react-router";
 import toast from "react-hot-toast";
 
-const BookingCard = ({ booked}) => {
-  console.log(booked.service_id);
+const BookingCard = ({ booked, setRefresh }) => {
+  const serv_id = booked.service_id;
   const { user } = useContext(AuthContext);
   const id = booked?._id;
   const handleDlete = () => {
@@ -33,6 +33,7 @@ const BookingCard = ({ booked}) => {
               text: "Your booking has been deleted.",
               icon: "success",
             });
+            setRefresh(true);
           })
           .catch((err) => {
             console.log(err);
@@ -40,32 +41,55 @@ const BookingCard = ({ booked}) => {
       }
     });
   };
-    const handelReview = (e) => {
-      e.preventDefault();
-      const formData = {
-        userImg: user?.photoURL,
-        name: e.target.name.value,
-        experince: e.target.experince.value,
-        product_id: booked.service_id,
-      };
-      console.log(formData);
-      fetch("http://localhost:3000/review", {
-        method: "POST",
-        headers: {
-          "content-Type": "application/json",
-        },
-        body: JSON.stringify(formData),
-      })
-        .then(() => {
-          toast.success("successfully added!");
-        })
-        .catch((err) => console.log(err));
+  const handleSubmit = (e, star) => {
+    e.preventDefault();
+
+    const formData = {
+      Review: Number(star),
     };
+
+    fetch(`http://localhost:3000/services/${serv_id}`, {
+      method: "PUT",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(formData),
+    })
+      .then(() => {
+        toast.success("Successfully updated!");
+        // navigate("/services");
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  };
+  const handelReview = (e) => {
+    e.preventDefault();
+    const star = e.target.star.value;
+    const formData = {
+      userImg: user?.photoURL,
+      name: e.target.name.value,
+      experince: e.target.experince.value,
+      product_id: serv_id,
+    };
+    console.log(formData);
+    fetch("http://localhost:3000/review", {
+      method: "POST",
+      headers: {
+        "content-Type": "application/json",
+      },
+      body: JSON.stringify(formData),
+    })
+      .then(() => {
+        toast.success("successfully added!");
+        handleSubmit(e, star);
+      })
+      .catch((err) => console.log(err));
+  };
   return (
     <div className=" flex gap-40 bg-base-100 px-5 py-3 rounded-xl justify-between items-center ">
       <div>
         <img className="size-10 rounded-box" src={booked.thumbnail} />
-        
       </div>
 
       <div>
@@ -87,7 +111,7 @@ const BookingCard = ({ booked}) => {
       </div>
       <div className="flex gap-2">
         <Link
-        // to={`/`}
+          // to={`/`}
           onClick={() => document.getElementById(`my_modal${id}`).showModal()}
           className="btn"
         >
@@ -100,9 +124,17 @@ const BookingCard = ({ booked}) => {
 
       {/* modal section  */}
       {/* Open the modal using document.getElementById('ID').showModal() method */}
-      <dialog id={`my_modal${id}`} className="modal modal-bottom sm:modal-middle">
+      <dialog
+        id={`my_modal${id}`}
+        className="modal modal-bottom sm:modal-middle"
+      >
         <div className="modal-box">
-          <form onSubmit={(e) => handelReview(e)} className="fieldset">
+          <form
+            onSubmit={(e) => {
+              handelReview(e);
+            }}
+            className="fieldset"
+          >
             <label className="label">Your Name</label>
             <input
               type="text"
@@ -117,6 +149,13 @@ const BookingCard = ({ booked}) => {
               className="input h-20 w-full"
               rows="3"
               placeholder="Write here"
+            />
+            <label className="label">Please Provide 5 Star ⭐</label>
+            <input
+              type="text"
+              name="star"
+              className="input w-full"
+              placeholder="Star"
             />
             <button role="submit" className="btn btn-neutral mt-4">
               Submit

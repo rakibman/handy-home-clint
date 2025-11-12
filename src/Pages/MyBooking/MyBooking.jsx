@@ -1,10 +1,9 @@
-import React, {  useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import BookingCard from "../../Components/BookingCard";
-
 
 const MyBooking = () => {
   const [booking, setBooking] = useState([]);
-  
+  const [refresh, setRefresh] = useState(false);
 
   useEffect(() => {
     fetch("http://localhost:3000/my-bookings")
@@ -13,8 +12,7 @@ const MyBooking = () => {
         // console.log(data);
         setBooking(data);
       });
-  }, []);
-
+  }, [refresh]);
 
   if (!booking) {
     return <p>loading...</p>;
@@ -25,6 +23,7 @@ const MyBooking = () => {
       <div className="grid grid-cols-1 space-y-3">
         {booking?.map((booked) => (
           <BookingCard
+            setRefresh={setRefresh}
             key={booked._id}
             booked={booked}
           />

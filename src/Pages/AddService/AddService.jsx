@@ -15,9 +15,8 @@ const AddService = () => {
       description: e.target.description.value,
       thumbnail: e.target.thumbnail.value,
       created_at: new Date(),
-      Booked: 0,
+      Review: Number(0),
     };
-    console.log(formData);
     fetch("http://localhost:3000/services", {
       method: "POST",
       headers: {

@@ -2,7 +2,7 @@ import React from "react";
 import { Link } from "react-router";
 
 const ServiceCard = ({ service }) => {
-  const { thumbnail, category, description, _id, service_Name, price } =
+  const { Review,thumbnail, category, description, _id, service_Name, price } =
     service;
   return (
     <div className="card cards bg-base-100 shadow-xl hover:shadow-2xl transition-all duration-300 hover:-translate-y-2">
@@ -18,6 +18,7 @@ const ServiceCard = ({ service }) => {
         <div className="badge text-xs badge-xs badge-secondary rounded-full">
           {category}
         </div>
+        <div className="font-semibold ">{Review} ⭐ Star Rated</div>
         <div className="font-semibold ">Price : ${price}</div>
         <p className="line-clamp-1">{description}</p>
         <div className="card-actions justify-between items-center mt-4">

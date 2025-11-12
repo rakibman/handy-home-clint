@@ -46,6 +46,9 @@ const Services = () => {
         console.log(err);
       });
   };
+  if(!services){
+    return <p>loading...</p>
+  }
   return (
     <div>
       <h1 className="text-4xl text-center py-7 font-semibold">Our Services</h1>
