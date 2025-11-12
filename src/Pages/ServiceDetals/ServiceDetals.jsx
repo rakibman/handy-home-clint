@@ -4,11 +4,14 @@ import Swal from "sweetalert2";
 import { SyncLoader } from "react-spinners";
 import toast from "react-hot-toast";
 import { AuthContext } from "../../context/AuthContext";
+import { div } from "motion/react-client";
+import Reviews from "../Reviews/Reviews";
 
 const ServiceDetals = () => {
   const { user } = useContext(AuthContext);
   const navigate = useNavigate();
   const [service, setService] = useState({});
+  const [reviews, setReviews] = useState([]);
   const [loading, setLoading] = useState(true);
   const {
     _id,
@@ -21,6 +24,7 @@ const ServiceDetals = () => {
     thumbnail,
   } = service;
   const { id } = useParams();
+  // singel data load func
   useEffect(() => {
     fetch(`http://localhost:3000/services/${id}`)
       .then((res) => res.json())
@@ -30,13 +34,12 @@ const ServiceDetals = () => {
       });
   }, [id]);
 
+  // review data load func
   useEffect(() => {
     fetch(`http://localhost:3000/review/${id}`)
       .then((res) => res.json())
       .then((data) => {
-        console.log(data);
-        // setService(data);
-        // setLoading(false);
+        setReviews(data);
       });
   }, [id]);
   const handelBooking = (e) => {
@@ -75,132 +78,139 @@ const ServiceDetals = () => {
     );
   }
   return (
-    <div className="max-w-5xl mx-auto p-6 bg-white shadow-md rounded-lg mt-10 grid grid-cols-5 gap-4">
-      {/* Thumbnail */}
-      <img
-        src={thumbnail}
-        alt={service_Name}
-        className="w-full h-fit object-cover rounded-lg mb-6 col-span-3"
-      />
+    <div className="max-w-5xl mx-auto">
+      <h1 className="text-3xl font-semibold text-center">Service Detals</h1>
+      <div className=" p-6 bg-white shadow-md rounded-lg mt-7 grid grid-cols-5 gap-4">
+        {/* Thumbnail */}
+        <img
+          src={thumbnail}
+          alt={service_Name}
+          className="w-full h-fit object-cover rounded-lg mb-6 col-span-3"
+        />
 
-      <div className="col-span-2">
-        {/* Service Info */}
-        <div className="mb-4">
-          <h1 className="text-3xl font-bold mb-2">{service_Name}</h1>
-          <p className="text-gray-600 text-sm mb-1">
-            Category: <span className="font-semibold">{category}</span>
-          </p>
-          <p className="text-gray-600 text-sm mb-1">
-            Provider: <span className="font-semibold">{name}</span>
-          </p>
-          <p className="text-gray-600 text-sm mb-1">
-            Email: <span className="font-semibold">{provider_email}</span>
-          </p>
-          <p className="text-gray-600 text-sm mb-1">
-            Price: <span className="font-semibold">${price}</span>
-          </p>
-          {/* <p className="text-gray-500 text-sm">Created at: {created_at}</p>
+        <div className="col-span-2">
+          {/* Service Info */}
+          <div className="mb-4">
+            <h1 className="text-3xl font-bold mb-2">{service_Name}</h1>
+            <p className="text-gray-600 text-sm mb-1">
+              Category: <span className="font-semibold">{category}</span>
+            </p>
+            <p className="text-gray-600 text-sm mb-1">
+              Provider: <span className="font-semibold">{name}</span>
+            </p>
+            <p className="text-gray-600 text-sm mb-1">
+              Email: <span className="font-semibold">{provider_email}</span>
+            </p>
+            <p className="text-gray-600 text-sm mb-1">
+              Price: <span className="font-semibold">${price}</span>
+            </p>
+            {/* <p className="text-gray-500 text-sm">Created at: {created_at}</p>
           <p className="text-gray-500 text-sm">Total Booked: {Booked}</p> */}
-        </div>
+          </div>
 
-        {/* Description */}
-        <div className="mt-6">
-          <h2 className="text-xl font-semibold mb-2">Description</h2>
-          <p className="text-gray-700">{description}</p>
-        </div>
+          {/* Description */}
+          <div className="mt-6">
+            <h2 className="text-xl font-semibold mb-2">Description</h2>
+            <p className="text-gray-700">{description}</p>
+          </div>
 
-        {/* Book Button */}
-        <div className="mt-6 flex gap-3">
-          {/* Open the modal using document.getElementById('ID').showModal() method */}
+          {/* Book Button */}
+          <div className="mt-6 flex gap-3">
+            {/* Open the modal using document.getElementById('ID').showModal() method */}
 
-          <button
-            onClick={() => {
-              if (provider_email === user.email) {
-                toast.error(
-                  '"You are the provider, cannot book your own service"'
-                );
-              } else {
-                if (user) {
-                  document.getElementById("my_modal_5").showModal();
-                } else {
-                  navigate("/login");
-                }
-              }
-            }}
-            className="bg-orange-500 hover:bg-orange-600 text-white font-semibold py-2 px-6 rounded-lg transition"
-          >
-            Book Now
-          </button>
-        </div>
-      </div>
-
-      {/* modal section  */}
-      <dialog id="my_modal_5" className="modal modal-bottom sm:modal-middle">
-        <div className="modal-box">
-          {/* <div className=" bg-linear-to-br from-cyan-50 via-cyan-200 to-cyan-400 flex items-center justify-center p-6">
-            
-          </div> */}
-          <form
-            onSubmit={handelBooking}
-            className=" shadow-xl rounded-2xl p-8 w-full max-w-md space-y-6 bg-linear-to-br from-cyan-50 via-cyan-200 to-cyan-400"
-          >
-            <h2 className="text-2xl font-bold text-gray-800 text-center">
-              Book a Service
-            </h2>
-
-            {/* Name Field */}
-            <div>
-              <label
-                className="block text-gray-700 font-medium mb-1"
-                htmlFor="name"
-              >
-                Full Name
-              </label>
-              <input
-                type="text"
-                id="name"
-                name="name"
-                required
-                placeholder="Enter your full name"
-                className="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-cyan-400"
-              />
-            </div>
-
-            {/* Email Field */}
-            <div>
-              <label
-                className="block text-gray-700 font-medium mb-1"
-                htmlFor="email"
-              >
-                Email Address
-              </label>
-              <input
-                defaultValue={user?.email}
-                type="email"
-                id="email"
-                name="email"
-                required
-                placeholder="Enter your email"
-                className="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-cyan-400"
-              />
-            </div>
-
-            {/* Submit Button */}
             <button
-              type="submit"
-              className="w-full py-3 bg-linear-to-r from-cyan-500 to-blue-500 text-white font-semibold rounded-lg shadow-md hover:shadow-lg transition-all"
+              onClick={() => {
+                if (provider_email === user.email) {
+                  toast.error(
+                    '"You are the provider, cannot book your own service"'
+                  );
+                } else {
+                  if (user) {
+                    document.getElementById("my_modal_5").showModal();
+                  } else {
+                    navigate("/login");
+                  }
+                }
+              }}
+              className="bg-orange-500 hover:bg-orange-600 text-white font-semibold py-2 px-6 rounded-lg transition"
             >
-              Confirm Booking
+              Book Now
             </button>
-          </form>
-          <div className="modal-action">
-            <form method="dialog">
-              {/* if there is a button in form, it will close the modal */}
-              <button className="btn">Close</button>
-            </form>
           </div>
         </div>
-      </dialog>
+
+        {/* modal section  */}
+        <dialog id="my_modal_5" className="modal modal-bottom sm:modal-middle">
+          <div className="modal-box">
+            {/* <div className=" bg-linear-to-br from-cyan-50 via-cyan-200 to-cyan-400 flex items-center justify-center p-6">
+            
+          </div> */}
+            <form
+              onSubmit={handelBooking}
+              className=" shadow-xl rounded-2xl p-8 w-full max-w-md space-y-6 bg-linear-to-br from-cyan-50 via-cyan-200 to-cyan-400"
+            >
+              <h2 className="text-2xl font-bold text-gray-800 text-center">
+                Book a Service
+              </h2>
+
+              {/* Name Field */}
+              <div>
+                <label
+                  className="block text-gray-700 font-medium mb-1"
+                  htmlFor="name"
+                >
+                  Full Name
+                </label>
+                <input
+                  type="text"
+                  id="name"
+                  name="name"
+                  required
+                  placeholder="Enter your full name"
+                  className="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-cyan-400"
+                />
+              </div>
+
+              {/* Email Field */}
+              <div>
+                <label
+                  className="block text-gray-700 font-medium mb-1"
+                  htmlFor="email"
+                >
+                  Email Address
+                </label>
+                <input
+                  defaultValue={user?.email}
+                  type="email"
+                  id="email"
+                  name="email"
+                  required
+                  placeholder="Enter your email"
+                  className="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-cyan-400"
+                />
+              </div>
+
+              {/* Submit Button */}
+              <button
+                type="submit"
+                className="w-full py-3 bg-linear-to-r from-cyan-500 to-blue-500 text-white font-semibold rounded-lg shadow-md hover:shadow-lg transition-all"
+              >
+                Confirm Booking
+              </button>
+            </form>
+            <div className="modal-action">
+              <form method="dialog">
+                {/* if there is a button in form, it will close the modal */}
+                <button className="btn">Close</button>
+              </form>
+            </div>
+          </div>
+        </dialog>
+      </div>
+      <div className="mt-10">
+        <h1 className="text-3xl text-center font-semibold py-5">What Our Happy Customar Say</h1>
+        <Reviews reviews={reviews} />
+      </div>
     </div>
   );
 };
