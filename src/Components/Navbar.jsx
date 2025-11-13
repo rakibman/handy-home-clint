@@ -1,11 +1,10 @@
-import React, { useContext } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { Link, NavLink } from "react-router";
 import { AuthContext } from "../context/AuthContext";
 
 const Navbar = () => {
   const { user, signOutUser } = useContext(AuthContext);
-  // console.log(user);
-
+  const [theme, setTheme] = useState(localStorage.getItem("theme") || "light");
   const handelSignOut = () => {
     signOutUser()
       .then((res) => {
@@ -21,8 +20,8 @@ const Navbar = () => {
         to="/"
         className={({ isActive }) =>
           isActive
-            ? "font-bold border-b-2 border-orange-500 text-orange-500 pb-1"
-            : "text-white hover:text-orange-500 transition font-semibold"
+            ? "text-cyan-400 font-semibold border-b-2 border-cyan-400"
+            : "text-white hover:text-cyan-500 transition font-semibold"
         }
       >
         Home
@@ -31,8 +30,8 @@ const Navbar = () => {
         to="/services"
         className={({ isActive }) =>
           isActive
-            ? "font-bold border-b-2 border-orange-500 text-orange-500 pb-1"
-            : "text-white hover:text-orange-500 transition font-semibold"
+            ? "text-cyan-400 font-semibold border-b-2 border-cyan-400"
+            : "text-white hover:text-cyan-500 transition font-semibold"
         }
       >
         Services
@@ -44,8 +43,8 @@ const Navbar = () => {
             to="/my-services"
             className={({ isActive }) =>
               isActive
-                ? "font-bold border-b-2 border-orange-500 text-orange-500 pb-1"
-                : "text-white hover:text-orange-500 transition font-semibold"
+                ? "text-cyan-400 font-semibold border-b-2 border-cyan-400"
+                : "text-white hover:text-cyan-500 transition font-semibold"
             }
           >
             My Services
@@ -54,8 +53,8 @@ const Navbar = () => {
             to="/add-service"
             className={({ isActive }) =>
               isActive
-                ? "font-bold border-b-2 border-orange-500 text-orange-500 pb-1"
-                : "text-white hover:text-orange-500 transition font-semibold"
+                ? "text-cyan-400 font-semibold border-b-2 border-cyan-400"
+                : "text-white hover:text-cyan-500 transition font-semibold"
             }
           >
             Add Service
@@ -64,8 +63,8 @@ const Navbar = () => {
             to="/my-bookings"
             className={({ isActive }) =>
               isActive
-                ? "font-bold border-b-2 border-orange-500 text-orange-500 pb-1"
-                : "text-white hover:text-orange-500 transition font-semibold"
+                ? "text-cyan-400 font-semibold border-b-2 border-cyan-400"
+                : "text-white hover:text-cyan-500 transition font-semibold"
             }
           >
             My Bookings
@@ -74,8 +73,8 @@ const Navbar = () => {
             to="/profile"
             className={({ isActive }) =>
               isActive
-                ? "font-bold border-b-2 border-orange-500 text-orange-500 pb-1"
-                : "text-white hover:text-orange-500 transition font-semibold"
+                ? "text-cyan-400 font-semibold border-b-2 border-cyan-400"
+                : "text-white hover:text-cyan-500 transition font-semibold"
             }
           >
             Profile
@@ -86,8 +85,18 @@ const Navbar = () => {
       )}
     </div>
   );
+  useEffect(() => {
+    const html = document.querySelector("html");
+    html.setAttribute("data-theme", theme);
+    localStorage.setItem("theme", theme);
+  }, [theme]);
+
+  const handleTheme = (checked) => {
+    setTheme(checked ? "dark" : "light");
+  };
+
   return (
-    <div className="navbar bg-base-100 shadow-sm px-10">
+    <div className="navbar bg-gray-600 shadow-sm px-10">
       <div className="navbar-start">
         <div className="dropdown">
           <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
@@ -126,6 +135,12 @@ const Navbar = () => {
         <ul className="menu menu-horizontal px-1">{links}</ul>
       </div>
       <div className="navbar-end">
+        <input
+          onChange={(e) => handleTheme(e.target.checked)}
+          type="checkbox"
+          defaultChecked={localStorage.getItem("theme") === "dark"}
+          className="toggle"
+        />
         {user ? (
           <div className="flex gap-3">
             <div className="dropdown dropdown-end">
@@ -148,7 +163,10 @@ const Navbar = () => {
           </div>
         ) : (
           <div>
-            <Link to={"/login"} className="btn">
+            <Link
+              to={"/login"}
+              className="px-6 py-2 bg-white/10 backdrop-blur-md text-white border border-white/20 rounded-lg hover:bg-white/20 transition-all duration-300"
+            >
               Login
             </Link>
           </div>

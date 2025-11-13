@@ -28,7 +28,7 @@ const Banner = () => {
         className="mySwiper"
       >
         <SwiperSlide>
-          <div className="px-4 py-4 md:flex gap-5 bg-linear-to-r from-blue-100 via-blue-200 to-blue-300">
+          <div className="px-4 py-4 md:flex gap-5 dark:bg-black bg-blue-200 ">
             <img
               className="w-3/5 max-h-[350px] rounded-xl"
               src="https://i.ibb.co.com/LzpNbtYd/cleaning-companies.jpg"
@@ -49,7 +49,7 @@ const Banner = () => {
           </div>
         </SwiperSlide>
         <SwiperSlide>
-          <div className="px-4 py-4 md:flex gap-5 bg-linear-to-r from-gray-800 via-gray-700 to-orange-500">
+          <div className="px-4 py-4 md:flex gap-5 bg-linear-to-r from-gray-800 via-gray-700 to-orange-500 dark:bg-black">
             <img
               className="w-3/5 max-h-[350px] rounded-xl"
               src="https://i.ibb.co.com/NdMzWCr3/male-professional-automotive-supervisor-advises-and-inspects-black-female-mechanic-worker-about-liqu.jpg"

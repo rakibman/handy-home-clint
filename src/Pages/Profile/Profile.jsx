@@ -16,8 +16,8 @@ const Profile = () => {
     return <p>loading...</p>;
   }
   return (
-    <div className="flex gap-20 p-3 max-w-[900px] mx-auto ">
-      <div className="w-1/2 profile-bg px-3 py-3 rounded-xl">
+    <div className="flex gap-20 p-3 max-w-[900px] mx-auto dark:text-white">
+      <div className="w-1/2 profile-bg px-3 py-3 rounded-xl dark:bg-white/10">
         <img
           className="my-5 mx-auto rounded-full w-30 h-30"
           src={user?.photoURL}
@@ -29,7 +29,7 @@ const Profile = () => {
           <p>{user?.email}</p>
         </div>
       </div>
-      <div className="w-1/ profile-bg-2 px-3 py-3 rounded-xl">
+      <div className="w-1/ profile-bg-2 px-3 py-3 rounded-xl dark:bg-white/10 ">
         <h1 className="text-3xl text-center font-semibold py-3">
           Update Profile
         </h1>

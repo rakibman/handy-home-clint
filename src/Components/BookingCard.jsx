@@ -87,7 +87,7 @@ const BookingCard = ({ booked, setRefresh }) => {
       .catch((err) => console.log(err));
   };
   return (
-    <div className=" flex gap-40 bg-base-100 px-5 py-3 rounded-xl justify-between items-center ">
+    <div className=" flex gap-40 bg-base-100 dark:bg-white/10 px-5 py-3 rounded-xl justify-between items-center ">
       <div>
         <img className="size-10 rounded-box" src={booked.thumbnail} />
       </div>

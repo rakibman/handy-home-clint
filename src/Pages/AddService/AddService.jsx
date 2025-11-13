@@ -31,16 +31,16 @@ const AddService = () => {
       .catch((err) => console.log(err));
   };
   return (
-    <div className="card border border-gray-200 bg-linear-to-br from-indigo-400 via-purple-400 to-blue-400 w-full  mx-auto shadow-2xl rounded-2xl">
+    <div className="card border-gray-200 dark:text-white w-full  mx-auto shadow-2xl rounded-2xl">
       <div className="card-body p-6 relative">
         <h2 className="text-2xl font-bold text-center mb-6">
           Add Your Service
         </h2>
-        <form onSubmit={handelAddModel} className="space-y-4 ">
+        <form onSubmit={handelAddModel} className="space-y-4  dark:text-black">
           <div className="grid grid-cols-3 gap-5">
             {/* Name Field */}
             <div>
-              <label className="label py-3 font-medium">
+              <label className="label py-3 font-medium dark:text-white">
                 Service Provider Name
               </label>
               <input
@@ -53,7 +53,7 @@ const AddService = () => {
             </div>
             {/* Service Field */}
             <div>
-              <label className="label py-3 font-medium">Service Name</label>
+              <label className="label py-3 font-medium dark:text-white">Service Name</label>
               <input
                 type="text"
                 name="service_name"
@@ -64,7 +64,7 @@ const AddService = () => {
             </div>
             {/* Price Field */}
             <div>
-              <label className="label py-3 font-medium">Service Price</label>
+              <label className="label py-3 font-medium dark:text-white">Service Price</label>
               <input
                 type="text"
                 name="price"
@@ -76,7 +76,7 @@ const AddService = () => {
 
             {/* Category Dropdown */}
             <div>
-              <label className="label py-3 font-medium">Category</label>
+              <label className="label py-3 font-medium dark:text-white">Category</label>
               <select
                 defaultValue={""}
                 name="category"
@@ -106,7 +106,7 @@ const AddService = () => {
             </div>
             {/* Thumbnail URL */}
             <div>
-              <label className="label py-3 font-medium">Thumbnail URL</label>
+              <label className="label py-3 font-medium dark:text-white">Thumbnail URL</label>
               <input
                 type="url"
                 name="thumbnail"
@@ -116,19 +116,10 @@ const AddService = () => {
               />
             </div>
             {/* Provider Email */}
-            {/* <div>
-              <label className="label py-3 font-medium">Provider Email</label>
-              <input
-                type="email"
-                name="email"
-                className="input w-full rounded-full focus:border-0 focus:outline-gray-200"
-                placeholder="abc@gmail.com"
-              />
-            </div> */}
           </div>
           {/* Description Textarea */}
           <div>
-            <label className="label py-3 font-medium">Description</label>
+            <label className="label py-3 font-medium dark:text-white">Description</label>
             <textarea
               name="description"
               required
