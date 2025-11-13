@@ -44,7 +44,7 @@ const BookingCard = ({ booked, setRefresh }) => {
       }
     });
   };
-  const handleSubmit = (e, star) => {
+  const handleUpdate = (e, star) => {
     e.preventDefault();
 
     const formData = {
@@ -85,8 +85,8 @@ const BookingCard = ({ booked, setRefresh }) => {
     })
       .then(() => {
         toast.success("Review added!");
-        handleSubmit(e, star);
-        setRefresh(true);
+        handleUpdate(e, star);
+        e.target.reset();
       })
       .catch((err) => console.log(err));
   };

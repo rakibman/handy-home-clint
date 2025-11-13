@@ -9,7 +9,7 @@ const MainLayout = () => {
       <header>
         <Navbar />
       </header>
-      <main className="flex-1 max-w-[1200px] mx-auto my-8">
+      <main className="flex-1 lg:max-w-[1200px] md:max-w-3xl mx-auto my-8">
         <Outlet />
       </main>
       <footer>

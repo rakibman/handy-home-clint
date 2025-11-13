@@ -23,7 +23,7 @@ const Home = () => {
             clients and make their lives easier. Here’s what makes us stand out.
           </p>
 
-          <div className="grid md:grid-cols-3 gap-8 max-w-5xl mx-auto">
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-5xl mx-auto">
             {/* Card 1: Blue Gradient */}
             <div
               className="bg-linear-to-r from-blue-200 via-blue-300 to-blue-400 

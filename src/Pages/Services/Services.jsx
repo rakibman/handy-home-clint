@@ -3,12 +3,14 @@ import ServiceCard from "../../Components/ServiceCard";
 
 const Services = () => {
   const [services, setServices] = useState([]);
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     fetch("https://handy-home-server.vercel.app/services")
       .then((res) => res.json())
       .then((data) => {
         setServices(data);
+        setLoading(false);
       })
       .catch((err) => {
         console.log(err);
@@ -26,6 +28,7 @@ const Services = () => {
       .then((res) => res.json())
       .then((data) => {
         setServices(data);
+        setLoading(false);
       })
       .catch((err) => {
         console.log(err);
@@ -41,13 +44,14 @@ const Services = () => {
       .then((res) => res.json())
       .then((data) => {
         setServices(data);
+        setLoading(false);
       })
       .catch((err) => {
         console.log(err);
       });
   };
-  if (!services) {
-    return <p>loading...</p>;
+  if (loading) {
+    return <p className="text-5xl font-bold">loading...</p>;
   }
   return (
     <div className="p-5">

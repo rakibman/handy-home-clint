@@ -12,7 +12,7 @@ import { Autoplay, Pagination, Navigation } from "swiper/modules";
 import { Link } from "react-router";
 const Banner = () => {
   return (
-    <div className="w-full mx-auto">
+    <div className="lg:w-full md:w-3xl mx-auto">
       <Swiper
         spaceBetween={30}
         centeredSlides={true}
@@ -53,7 +53,7 @@ const Banner = () => {
           <div className="px-4 py-4 md:flex gap-5 bg-linear-to-r from-gray-800 via-gray-700 to-orange-500
             dark:from-gray-900 dark:via-gray-800 dark:to-orange-600">
             <img
-              className="md:w-3/5 w:full max-h-[350px] rounded-xl"
+              className="md:w-3/5 w-full max-h-[350px] rounded-xl"
               src="https://i.ibb.co.com/NdMzWCr3/male-professional-automotive-supervisor-advises-and-inspects-black-female-mechanic-worker-about-liqu.jpg"
               alt=""
             />
@@ -75,7 +75,7 @@ const Banner = () => {
           <div className="px-4 py-4 md:flex gap-5 bg-linear-to-r from-pink-100 via-pink-200 to-purple-200
             dark:from-purple-700 dark:via-purple-800 dark:to-indigo-900">
             <img
-              className="md:w-3/5 w:full  max-h-[350px] rounded-xl"
+              className="md:w-3/5 w-full  max-h-[350px] rounded-xl"
               src="https://i.ibb.co.com/N6TdjDwR/istockphoto-1181702511-612x612.jpg"
               alt=""
             />
