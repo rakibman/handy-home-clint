@@ -5,20 +5,3 @@
 }
 
 @custom-variant dark (&:where([data-theme=dark], [data-theme=dark] *));
-/* .navbar {
-  background: linear-gradient(90deg, #4d9ff5, #0052d4);
-} */
-/* body {
-  background: linear-gradient(135deg, #e0eafc, #cfdef3);
-} */
-/* .cards {
-  background: linear-gradient(135deg, #f0f4ff, #e5ecff);
-  border-radius: 14px;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
-} */
-/* .profile-bg {
-  background: linear-gradient(135deg, #e0c3fc, #8ec5fc);
-}
-.profile-bg-2 {
-  background: linear-gradient(120deg, #feecdc, #fde2e4);
-} */

@@ -28,7 +28,8 @@ const Banner = () => {
         className="mySwiper"
       >
         <SwiperSlide>
-          <div className="px-4 py-4 md:flex gap-5 dark:bg-black bg-blue-200 ">
+          <div className="px-4 py-4 md:flex gap-5 bg-[linear-gradient(135deg,#bfdbfe,#93c5fd)]
+            dark:bg-[linear-gradient(135deg,#1e40af,#1e3a8a)]  ">
             <img
               className="w-3/5 max-h-[350px] rounded-xl"
               src="https://i.ibb.co.com/LzpNbtYd/cleaning-companies.jpg"
@@ -49,7 +50,8 @@ const Banner = () => {
           </div>
         </SwiperSlide>
         <SwiperSlide>
-          <div className="px-4 py-4 md:flex gap-5 bg-linear-to-r from-gray-800 via-gray-700 to-orange-500 dark:bg-black">
+          <div className="px-4 py-4 md:flex gap-5 bg-linear-to-r from-gray-800 via-gray-700 to-orange-500
+            dark:from-gray-900 dark:via-gray-800 dark:to-orange-600 dark:bg-black">
             <img
               className="w-3/5 max-h-[350px] rounded-xl"
               src="https://i.ibb.co.com/NdMzWCr3/male-professional-automotive-supervisor-advises-and-inspects-black-female-mechanic-worker-about-liqu.jpg"
@@ -70,7 +72,8 @@ const Banner = () => {
           </div>
         </SwiperSlide>
         <SwiperSlide>
-          <div className="px-4 py-4 md:flex gap-5 bg-linear-to-r from-pink-100 via-pink-200 to-purple-200">
+          <div className="px-4 py-4 md:flex gap-5 bg-linear-to-r from-pink-100 via-pink-200 to-purple-200
+            dark:from-purple-700 dark:via-purple-800 dark:to-indigo-900">
             <img
               className="w-3/5 max-h-[350px] rounded-xl"
               src="https://i.ibb.co.com/N6TdjDwR/istockphoto-1181702511-612x612.jpg"

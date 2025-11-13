@@ -16,8 +16,11 @@ const Profile = () => {
     return <p>loading...</p>;
   }
   return (
-    <div className="flex gap-20 p-3 max-w-[900px] mx-auto dark:text-white">
-      <div className="w-1/2 profile-bg px-3 py-3 rounded-xl dark:bg-white/10">
+    <div className="flex gap-20 p-3 max-w-[900px] mx-auto">
+      <div
+        className="w-[400px] profile-bg px-3 py-3 rounded-xl bg-[linear-gradient(135deg,#e0c3fc,#8ec5fc)]
+            dark:bg-[linear-gradient(135deg,#4b3263,#1e293b)]"
+      >
         <img
           className="my-5 mx-auto rounded-full w-30 h-30"
           src={user?.photoURL}
@@ -25,41 +28,43 @@ const Profile = () => {
         />
 
         <div className="text-center">
-          <h1>{user?.displayName}</h1>
-          <p>{user?.email}</p>
+          <h1 className="font-bold">
+            <span className="font-semibold">Name:</span> {user?.displayName}
+          </h1>
+          <p className="font-bold">
+            <span className="font-semibold">Email:</span> {user?.email}
+          </p>
         </div>
       </div>
-      <div className="w-1/ profile-bg-2 px-3 py-3 rounded-xl dark:bg-white/10 ">
+      <div
+        className="w-[400px] profile-bg-2 px-3 py-3 rounded-xl bg-[linear-gradient(120deg,#feecdc,#fde2e4)] 
+            dark:bg-[linear-gradient(120deg,#2c2c2c,#1a1a1a)]  "
+      >
         <h1 className="text-3xl text-center font-semibold py-3">
           Update Profile
         </h1>
         <form onSubmit={updateProfileFunc} className="space-y-2">
           {/* name  */}
           <div>
-            <label className="block text-sm font-medium text-gray-700 mb-1">
-              Name
-            </label>
+            <label className="block text-sm font-medium mb-1">Name</label>
             <input
-            defaultValue={user.displayName}
+              defaultValue={user.displayName}
               type="text"
               name="name"
               placeholder="Enter your name"
-              className="md:w-[400px] px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-400 outline-none"
+              className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-400 outline-none"
               required
             />
           </div>
           {/* photo url  */}
           <div>
-            <label className="block text-sm font-medium text-gray-700 mb-1">
-              Photo URL
-            </label>
+            <label className="block text-sm font-medium  mb-1">Photo URL</label>
             <input
-            defaultValue={user.photoURL}
-            
+              defaultValue={user.photoURL}
               type="text"
               name="photo"
               placeholder="Enter your Photo"
-              className="md:w-[400px] px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-400 outline-none"
+              className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-400 outline-none"
               required
             />
           </div>

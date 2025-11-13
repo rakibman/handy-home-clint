@@ -2,10 +2,16 @@ import React from "react";
 import { Link } from "react-router";
 
 const ServiceCard = ({ service }) => {
-  const { Review,thumbnail, category, description, _id, service_Name, price } =
+  const { Review, thumbnail, category, description, _id, service_Name, price } =
     service;
   return (
-    <div className="card   shadow-xl hover:shadow-2xl transition-all duration-300 hover:-translate-y-2">
+    <div
+      className="card  bg-[linear-gradient(135deg,#f0f4ff,#e5ecff)]
+  dark:bg-[linear-gradient(135deg,#1e293b,#111827)]
+  rounded-[14px]
+  shadow-[0_4px_10px_rgba(0,0,0,0.05)]
+ hover:shadow-2xl transition-all duration-300 hover:-translate-y-2"
+    >
       <figure className="h-48 overflow-hidden">
         <img
           src={thumbnail}

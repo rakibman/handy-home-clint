@@ -96,7 +96,7 @@ const Navbar = () => {
   };
 
   return (
-    <div className="navbar bg-gray-600 shadow-sm px-10">
+    <div className="navbar bg-[linear-gradient(90deg,#4d9ff5,#0052d4)]  dark:bg-[linear-gradient(90deg,#1e3a8a,#0f172a)] bg-gray-600 shadow-sm px-10">
       <div className="navbar-start">
         <div className="dropdown">
           <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
