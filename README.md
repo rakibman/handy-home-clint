@@ -1,16 +1,27 @@
-# React + Vite
+# 🏠 Handy Home
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+**Handy Home** is a modern web platform that connects users with trusted local home service providers — including electricians, plumbers, cleaners, and more. It helps users easily find, book, and review home services in just a few clicks.
 
-Currently, two official plugins are available:
+## 🌐 Live Site URL
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+👉 [https://handy-home.netlify.app/](https://handy-home.netlify.app/)
 
-## React Compiler
+## ✨ Key Features
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+- 🔧 **Service Categories:** Browse through a wide range of home service categories such as cleaning, plumbing, and electrical work.
+- 📅 **Easy Booking System:** Book your desired service instantly with a simple and user-friendly interface.
+- ⭐ **User Reviews & Ratings:** View feedback and ratings from other users to choose the best service provider.
+- 🧾 **Personalized Dashboard:** Users can manage bookings, check history, and track upcoming appointments.
+- 🌙 **Dark Theme Support:** Modern dark UI for comfortable browsing at any time of the day.
 
-## Expanding the ESLint configuration
+## 💻 Technologies Used
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+- React.js
+- Tailwind CSS
+- Node.js & Express (Backend)
+- MongoDB (Database)
+- Firebase Authentication
+
+---
+
+📢 _Handy Home – Simplifying your household service needs!_
