@@ -6,7 +6,7 @@ const MyServiceCard = ({ service }) => {
   const navigate = useNavigate();
   const { thumbnail, category, _id, service_Name, price } = service;
 
-  const handleDlete = (id) => {
+  const handleDlete = () => {
     Swal.fire({
       title: "Are you sure?",
       text: "You won't be able to revert this!",
@@ -17,14 +17,13 @@ const MyServiceCard = ({ service }) => {
       confirmButtonText: "Yes, delete it!",
     }).then((result) => {
       if (result.isConfirmed) {
-        fetch(`https://handy-home-server.vercel.app/services/${id}`, {
+        fetch(`https://handy-home-server.vercel.app/services/${_id}`, {
           method: "DELETE",
           headers: {
             "Content-Type": "application/json",
           },
         })
-          .then(() => {
-
+          .then(() => { 
             navigate("/services");
 
             Swal.fire({
@@ -67,7 +66,7 @@ const MyServiceCard = ({ service }) => {
         <Link to={`/update/${_id}`} className="btn btn-ghost btn-xs">
           Update Service
         </Link>
-        <button onClick={handleDlete} className="btn btn-ghost btn-xs">
+        <button onClick={ handleDlete} className="btn btn-ghost btn-xs">
           Delete
         </button>
       </th>
