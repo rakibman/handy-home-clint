@@ -8,7 +8,9 @@ const MyServices = () => {
   const [myServices, setMyservices] = useState([]);
   console.log(myServices);
   useEffect(() => {
-    fetch(`http://localhost:3000/my-services?email=${user?.email}`)
+    fetch(
+      `https://handy-home-server.vercel.app/my-services?email=${user?.email}`
+    )
       .then((res) => res.json())
       .then((data) => {
         setMyservices(data);
@@ -22,14 +24,14 @@ const MyServices = () => {
     <div className="max-w-7xl mx-auto">
       <h1 className="text-5xl font-bold text-center py-5">My Services</h1>
 
-        <table className="table">
-          <dbody className="grid grid-cols-1 gap-5 mt-7">
-            {myServices.map((service) => (
-              <MyServiceCard service={service} />
-            ))}
-          </dbody>
-        </table>
-      </div>
+      <table className="table">
+        <dbody className="grid grid-cols-1 gap-5 mt-7">
+          {myServices.map((service) => (
+            <MyServiceCard service={service} />
+          ))}
+        </dbody>
+      </table>
+    </div>
   );
 };
 

@@ -17,7 +17,7 @@ const AddService = () => {
       created_at: new Date(),
       Review: Number(0),
     };
-    fetch("http://localhost:3000/services", {
+    fetch("https://handy-home-server.vercel.app/services", {
       method: "POST",
       headers: {
         "content-Type": "application/json",

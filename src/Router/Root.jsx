@@ -57,7 +57,7 @@ export const router = createBrowserRouter([
         path: "/update/:id",
         element: <Update />,
         loader: ({ params }) =>
-          fetch(`http://localhost:3000/services/${params.id}`),
+          fetch(`https://handy-home-server.vercel.app/services/${params.id}`),
       },
       {
         path: "*",

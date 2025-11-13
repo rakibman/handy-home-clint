@@ -21,12 +21,15 @@ const BookingCard = ({ booked, setRefresh }) => {
       confirmButtonText: "Yes, delete it!",
     }).then((result) => {
       if (result.isConfirmed) {
-        fetch(`http://localhost:3000/my-bookings/${booked._id}`, {
-          method: "DELETE",
-          headers: {
-            "Content-Type": "application/json",
-          },
-        })
+        fetch(
+          `https://handy-home-server.vercel.app/my-bookings/${booked._id}`,
+          {
+            method: "DELETE",
+            headers: {
+              "Content-Type": "application/json",
+            },
+          }
+        )
           .then(() => {
             Swal.fire({
               title: "Deleted!",
@@ -48,7 +51,7 @@ const BookingCard = ({ booked, setRefresh }) => {
       Review: Number(star),
     };
 
-    fetch(`http://localhost:3000/services/${serv_id}`, {
+    fetch(`https://handy-home-server.vercel.app/services/${serv_id}`, {
       method: "PUT",
       headers: {
         "Content-Type": "application/json",
@@ -73,7 +76,7 @@ const BookingCard = ({ booked, setRefresh }) => {
       product_id: serv_id,
     };
     console.log(formData);
-    fetch("http://localhost:3000/review", {
+    fetch("https://handy-home-server.vercel.app/review", {
       method: "POST",
       headers: {
         "content-Type": "application/json",

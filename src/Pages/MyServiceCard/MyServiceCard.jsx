@@ -17,7 +17,7 @@ const MyServiceCard = ({ service }) => {
       confirmButtonText: "Yes, delete it!",
     }).then((result) => {
       if (result.isConfirmed) {
-        fetch(`http://localhost:3000/services/${id}`, {
+        fetch(`https://handy-home-server.vercel.app/services/${id}`, {
           method: "DELETE",
           headers: {
             "Content-Type": "application/json",
@@ -41,9 +41,11 @@ const MyServiceCard = ({ service }) => {
     });
   };
   return (
-    <tr className="w-[900px] bg-white/25 backdrop-blur-xl border border-white/40 shadow-lg
+    <tr
+      className="w-[900px] bg-white/25 backdrop-blur-xl border border-white/40 shadow-lg
             dark:bg-white/10 dark:border-white/20
-            text-gray-800 dark:text-gray-100 flex justify-between items-center rounded-xl">
+            text-gray-800 dark:text-gray-100 flex justify-between items-center rounded-xl"
+    >
       <td className="w-1/3">
         <div className="flex items-center gap-3 ">
           <div className="avatar">

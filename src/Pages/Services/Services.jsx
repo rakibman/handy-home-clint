@@ -5,7 +5,7 @@ const Services = () => {
   const [services, setServices] = useState([]);
 
   useEffect(() => {
-    fetch("http://localhost:3000/services")
+    fetch("https://handy-home-server.vercel.app/services")
       .then((res) => res.json())
       .then((data) => {
         setServices(data);
@@ -21,7 +21,7 @@ const Services = () => {
     const minPrice = e.target.minPrice.value || 0;
     const maxPrice = e.target.maxPrice.value || Infinity;
     fetch(
-      `http://localhost:3000/sort-services?minPrice=${minPrice}&maxPrice=${maxPrice}`
+      `https://handy-home-server.vercel.app/sort-services?minPrice=${minPrice}&maxPrice=${maxPrice}`
     )
       .then((res) => res.json())
       .then((data) => {
@@ -35,9 +35,9 @@ const Services = () => {
   // search by name
   const handleSearch = (e) => {
     e.preventDefault();
-    const search_text = e.target.search.value 
+    const search_text = e.target.search.value;
 
-    fetch(`http://localhost:3000/search?search=${search_text}`)
+    fetch(`https://handy-home-server.vercel.app/search?search=${search_text}`)
       .then((res) => res.json())
       .then((data) => {
         setServices(data);
@@ -46,8 +46,8 @@ const Services = () => {
         console.log(err);
       });
   };
-  if(!services){
-    return <p>loading...</p>
+  if (!services) {
+    return <p>loading...</p>;
   }
   return (
     <div>

@@ -25,7 +25,7 @@ const ServiceDetals = () => {
   const { id } = useParams();
   // singel data load func
   useEffect(() => {
-    fetch(`http://localhost:3000/services/${id}`)
+    fetch(`https://handy-home-server.vercel.app/services/${id}`)
       .then((res) => res.json())
       .then((data) => {
         setService(data);
@@ -35,7 +35,7 @@ const ServiceDetals = () => {
 
   // review data load func
   useEffect(() => {
-    fetch(`http://localhost:3000/review/${id}`)
+    fetch(`https://handy-home-server.vercel.app/review/${id}`)
       .then((res) => res.json())
       .then((data) => {
         setReviews(data);
@@ -56,7 +56,7 @@ const ServiceDetals = () => {
       booked_date: new Date(),
     };
     console.log(formData);
-    fetch("http://localhost:3000/my-bookings", {
+    fetch("https://handy-home-server.vercel.app/my-bookings", {
       method: "POST",
       headers: {
         "content-Type": "application/json",
@@ -207,7 +207,9 @@ const ServiceDetals = () => {
         </dialog>
       </div>
       <div className="mt-10">
-        <h1 className="text-3xl text-center font-semibold py-5">What Our Happy Customar Say</h1>
+        <h1 className="text-3xl text-center font-semibold py-5">
+          What Our Happy Customar Say
+        </h1>
         <Reviews reviews={reviews} />
       </div>
     </div>

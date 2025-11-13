@@ -5,7 +5,7 @@ import ServiceCard from "../../Components/ServiceCard";
 const SortServices = () => {
   const [services, serServices] = useState([]);
   useEffect(() => {
-    fetch("http://localhost:3000/banner-services")
+    fetch("https://handy-home-server.vercel.app/banner-services")
       .then((res) => res.json())
       .then((data) => {
         serServices(data);
@@ -17,7 +17,9 @@ const SortServices = () => {
   return (
     <div className="my-5">
       <div>
-        <h1 className="text-3xl font-bold text-center">Our Top Rated services</h1>
+        <h1 className="text-3xl font-bold text-center">
+          Our Top Rated services
+        </h1>
       </div>
       <div className="grid grid-cols-3 gap-5 my-10">
         {services.map((service) => (

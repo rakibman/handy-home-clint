@@ -6,7 +6,7 @@ const MyBooking = () => {
   const [refresh, setRefresh] = useState(false);
 
   useEffect(() => {
-    fetch("http://localhost:3000/my-bookings")
+    fetch("https://handy-home-server.vercel.app/my-bookings")
       .then((res) => res.json())
       .then((data) => {
         // console.log(data);

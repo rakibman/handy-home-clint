@@ -23,7 +23,7 @@ const Update = () => {
       Review: 0,
     };
 
-    fetch(`http://localhost:3000/services/${id}`, {
+    fetch(`https://handy-home-server.vercel.app/services/${id}`, {
       method: "PUT",
       headers: {
         "Content-Type": "application/json",
