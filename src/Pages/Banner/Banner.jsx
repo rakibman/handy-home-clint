@@ -12,7 +12,7 @@ import { Autoplay, Pagination, Navigation } from "swiper/modules";
 import { Link } from "react-router";
 const Banner = () => {
   return (
-    <div className="lg:w-full w-[400px] mx-auto">
+    <div className="md:w-full w-[400px] mx-auto">
       <Swiper
         spaceBetween={30}
         centeredSlides={true}
