@@ -1,6 +1,7 @@
 import React, { useContext, useEffect, useState } from "react";
 import { AuthContext } from "../../context/AuthContext";
 import MyServiceCard from "../MyServiceCard/MyServiceCard";
+import { Link } from "react-router";
 
 const MyServices = () => {
   const { user } = useContext(AuthContext);
@@ -19,6 +20,11 @@ const MyServices = () => {
   }, [user?.email]);
   if (!myServices) {
     return <p>loading...</p>;
+  }
+  if(myServices.length == 0){
+    return <div>
+      <Link to={'/add-service'} className="btn">Add Service</Link>
+    </div>
   }
   return (
     <div className="max-w-7xl mx-auto">
