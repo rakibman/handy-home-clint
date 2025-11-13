@@ -12,7 +12,7 @@ import { Autoplay, Pagination, Navigation } from "swiper/modules";
 import { Link } from "react-router";
 const Banner = () => {
   return (
-    <div className="lg:w-full md:w-3xl mx-auto">
+    <div className="lg:w-full w-[400px] mx-auto">
       <Swiper
         spaceBetween={30}
         centeredSlides={true}
@@ -31,7 +31,7 @@ const Banner = () => {
           <div className="px-4 py-4  md:flex gap-5 bg-[linear-gradient(135deg,#bfdbfe,#93c5fd)]
             dark:bg-[linear-gradient(135deg,#1e40af,#1e3a8a)]  ">
             <img
-              className="md:w-3/5 w:full max-h-[350px] rounded-xl"
+              className="md:w-3/5 w-full max-h-[350px] rounded-xl"
               src="https://i.ibb.co.com/LzpNbtYd/cleaning-companies.jpg"
               alt=""
             />

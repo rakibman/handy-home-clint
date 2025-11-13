@@ -206,6 +206,7 @@ const ServiceDetals = () => {
           </div>
         </dialog>
       </div>
+
       <div className="mt-10">
         <h1 className="text-3xl text-center font-semibold py-5">
           What Our Happy Customar Say
