@@ -119,6 +119,9 @@ const ServiceDetals = () => {
 
             <button
               onClick={() => {
+                if (!user) {
+                  navigate("/login");
+                }
                 if (provider_email === user.email) {
                   toast.error(
                     '"You are the provider, cannot book your own service"'
@@ -126,8 +129,6 @@ const ServiceDetals = () => {
                 } else {
                   if (user) {
                     document.getElementById("my_modal_5").showModal();
-                  } else {
-                    navigate("/login");
                   }
                 }
               }}
