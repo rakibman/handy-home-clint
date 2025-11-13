@@ -21,7 +21,7 @@ const SortServices = () => {
           Our Top Rated services
         </h1>
       </div>
-      <div className="grid grid-cols-3 gap-5 my-10">
+      <div className="grid lg:grid-cols-3 grid-cols-1 md:grid-cols-2 p-5  gap-5 my-10">
         {services.map((service) => (
           <ServiceCard key={service._id} service={service} />
         ))}

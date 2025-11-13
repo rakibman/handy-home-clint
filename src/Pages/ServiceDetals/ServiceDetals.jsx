@@ -77,9 +77,9 @@ const ServiceDetals = () => {
     );
   }
   return (
-    <div className="max-w-5xl mx-auto">
+    <div className="lg:max-w-5xl p-5 mx-auto">
       <h1 className="text-3xl font-semibold text-center">Service Detals</h1>
-      <div className=" p-6 bg-white shadow-md rounded-lg mt-7 grid grid-cols-5 gap-4">
+      <div className=" p-6 bg-white shadow-md rounded-lg mt-7  md:grid grid-cols-5 gap-4">
         {/* Thumbnail */}
         <img
           src={thumbnail}

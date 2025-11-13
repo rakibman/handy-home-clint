@@ -32,7 +32,7 @@ const AddService = () => {
   };
   return (
     <div
-      className="card   bg-[linear-gradient(10deg,#a3bffa,#6b82f4)]
+      className="card bg-[linear-gradient(10deg,#a3bffa,#6b82f4)]
             dark:bg-[linear-gradient(135deg,#1e2a4f,#0f1830)]
             p-6
             text-gray-800 dark:text-white w-full  mx-auto shadow-2xl rounded-2xl"

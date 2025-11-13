@@ -6,11 +6,7 @@ const ServiceCard = ({ service }) => {
     service;
   return (
     <div
-      className="card  bg-[linear-gradient(135deg,#f0f4ff,#e5ecff)]
-  dark:bg-[linear-gradient(135deg,#1e293b,#111827)]
-  rounded-[14px]
-  shadow-[0_4px_10px_rgba(0,0,0,0.05)]
- hover:shadow-2xl transition-all duration-300 hover:-translate-y-2"
+      className="card mx-auto  bg-[linear-gradient(135deg,#f0f4ff,#e5ecff)] dark:bg-[linear-gradient(135deg,#1e293b,#111827)] rounded-[14px] shadow-[0_4px_10px_rgba(0,0,0,0.05)] hover:shadow-2xl transition-all duration-300 hover:-translate-y-2"
     >
       <figure className="h-48 overflow-hidden">
         <img

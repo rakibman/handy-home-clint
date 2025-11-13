@@ -50,43 +50,49 @@ const Services = () => {
     return <p>loading...</p>;
   }
   return (
-    <div>
+    <div className="p-5">
       <h1 className="text-4xl text-center py-7 font-semibold">Our Services</h1>
-      <div className="flex justify-between items-center w-6xl">
-        <form onSubmit={handleSearch} className="flex gap-3">
-          <input
-            name="search"
-            type="text"
-            placeholder="Type here"
-            className="input w-30"
-          />
-          <button role="submit" className="btn">
-            search
-          </button>
-        </form>
-        <form onSubmit={handelMinMaxPrice} className="flex my-5 gap-3 ">
-          <input
-            name="minPrice"
-            type="text"
-            placeholder="Min Price"
-            className="input w-30"
-          />
-          <input
-            name="maxPrice"
-            type="text"
-            placeholder="Max Price"
-            className="input w-30"
-          />
-          <button role="submit" className="btn">
-            search
-          </button>
-        </form>
+      <div className="md:flex justify-between items-center lg:w-6xl">
+        <div>
+          <h1 className="text-2xl font-semibold">Search by Name</h1>
+          <form onSubmit={handleSearch} className="flex gap-3 py-3">
+            <input
+              name="search"
+              type="text"
+              placeholder="Type here"
+              className="input w-30"
+            />
+            <button role="submit" className="btn">
+              search
+            </button>
+          </form>
+        </div>
+        <div>
+          <h1 className="text-2xl font-semibold">Search By Price</h1>
+          <form onSubmit={handelMinMaxPrice} className="flex py-3 gap-3 ">
+            <input
+              name="minPrice"
+              type="text"
+              placeholder="Min Price"
+              className="input w-30"
+            />
+            <input
+              name="maxPrice"
+              type="text"
+              placeholder="Max Price"
+              className="input w-30"
+            />
+            <button role="submit" className="btn">
+              search
+            </button>
+          </form>
+        </div>
       </div>
       <div>
         {services.length == 0 ? (
           <p className="text-center text-4xl font-semibold">No Data found</p>
         ) : (
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-5">
+          <div className="grid md:grid-cols-2 lg:grid-cols-4 grid-cols-1  gap-3">
             {services?.map((service) => (
               <ServiceCard key={service._id} service={service} />
             ))}

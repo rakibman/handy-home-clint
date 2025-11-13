@@ -1,7 +1,12 @@
 import React, { useContext, useEffect, useState } from "react";
 import { Link, NavLink } from "react-router";
 import { AuthContext } from "../context/AuthContext";
-
+import { FaHome } from "react-icons/fa";
+import { GrServices } from "react-icons/gr";
+import { AiOutlineProduct } from "react-icons/ai";
+import { MdAssignmentAdd } from "react-icons/md";
+import { TbBrandBooking } from "react-icons/tb";
+import { CgProfile } from "react-icons/cg";
 const Navbar = () => {
   const { user, signOutUser } = useContext(AuthContext);
   const [theme, setTheme] = useState(localStorage.getItem("theme") || "light");
@@ -14,17 +19,26 @@ const Navbar = () => {
         console.log(err);
       });
   };
+
+  useEffect(() => {
+    const html = document.querySelector("html");
+    html.setAttribute("data-theme", theme);
+    localStorage.setItem("theme", theme);
+  }, [theme]);
   const links = (
-    <div className="flex gap-2">
+    <div className="lg:flex  gap-2">
       <NavLink
         to="/"
         className={({ isActive }) =>
           isActive
-            ? "text-cyan-400 font-semibold border-b-2 border-cyan-400"
+            ? "text-cyan-400 font-semibold border-b-2 border-cyan-400 "
             : "text-white hover:text-cyan-500 transition font-semibold"
         }
       >
-        Home
+        <p className="flex items-center gap-2">
+          <FaHome /> Home
+        </p>
+        
       </NavLink>
       <NavLink
         to="/services"
@@ -34,11 +48,12 @@ const Navbar = () => {
             : "text-white hover:text-cyan-500 transition font-semibold"
         }
       >
-        Services
+        <p className="flex items-center gap-2"><GrServices />Services</p>
+        
       </NavLink>
       {/* Privat link  */}
       {user ? (
-        <div className="flex gap-2">
+        <div className="lg:flex gap-2">
           <NavLink
             to="/my-services"
             className={({ isActive }) =>
@@ -47,7 +62,8 @@ const Navbar = () => {
                 : "text-white hover:text-cyan-500 transition font-semibold"
             }
           >
-            My Services
+            <p className="flex items-center gap-2"><AiOutlineProduct />My Services</p>
+            
           </NavLink>
           <NavLink
             to="/add-service"
@@ -57,7 +73,8 @@ const Navbar = () => {
                 : "text-white hover:text-cyan-500 transition font-semibold"
             }
           >
-            Add Service
+            <p className="flex items-center gap-2"><MdAssignmentAdd />Add Service</p>
+           
           </NavLink>
           <NavLink
             to="/my-bookings"
@@ -67,7 +84,8 @@ const Navbar = () => {
                 : "text-white hover:text-cyan-500 transition font-semibold"
             }
           >
-            My Bookings
+            <p className="flex items-center gap-2"><TbBrandBooking />My Bookings</p>
+            
           </NavLink>
           <NavLink
             to="/profile"
@@ -77,7 +95,8 @@ const Navbar = () => {
                 : "text-white hover:text-cyan-500 transition font-semibold"
             }
           >
-            Profile
+            <p className="flex items-center gap-2"><CgProfile />Profile</p>
+           
           </NavLink>
         </div>
       ) : (
@@ -85,12 +104,6 @@ const Navbar = () => {
       )}
     </div>
   );
-  useEffect(() => {
-    const html = document.querySelector("html");
-    html.setAttribute("data-theme", theme);
-    localStorage.setItem("theme", theme);
-  }, [theme]);
-
   const handleTheme = (checked) => {
     setTheme(checked ? "dark" : "light");
   };
@@ -98,7 +111,7 @@ const Navbar = () => {
   return (
     <div className="navbar bg-[linear-gradient(90deg,#4d9ff5,#0052d4)]  dark:bg-[linear-gradient(90deg,#1e3a8a,#0f172a)] bg-gray-600 shadow-sm px-10">
       <div className="navbar-start">
-        <div className="dropdown">
+        <div className="dropdown z-50">
           <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -118,7 +131,7 @@ const Navbar = () => {
           </div>
           <ul
             tabIndex="-1"
-            className="menu menu-sm dropdown-content bg-base-100 rounded-box z-1 mt-3 w-52 p-2 shadow"
+            className="menu menu-sm dropdown-content bg-black  rounded-box z-1 mt-3 w-52 p-2 shadow"
           >
             {links}
           </ul>
@@ -139,11 +152,11 @@ const Navbar = () => {
           onChange={(e) => handleTheme(e.target.checked)}
           type="checkbox"
           defaultChecked={localStorage.getItem("theme") === "dark"}
-          className="toggle"
+          className="toggle mx-2"
         />
         {user ? (
           <div className="flex gap-3">
-            <div className="dropdown dropdown-end">
+            <div className="z-50 dropdown dropdown-end">
               <div tabIndex={0} role="button" className=" m-1">
                 <img
                   className="h-10 w-10 rounded-full"

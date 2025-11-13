@@ -28,15 +28,15 @@ const Banner = () => {
         className="mySwiper"
       >
         <SwiperSlide>
-          <div className="px-4 py-4 md:flex gap-5 bg-[linear-gradient(135deg,#bfdbfe,#93c5fd)]
+          <div className="px-4 py-4  md:flex gap-5 bg-[linear-gradient(135deg,#bfdbfe,#93c5fd)]
             dark:bg-[linear-gradient(135deg,#1e40af,#1e3a8a)]  ">
             <img
-              className="w-3/5 max-h-[350px] rounded-xl"
+              className="md:w-3/5 w:full max-h-[350px] rounded-xl"
               src="https://i.ibb.co.com/LzpNbtYd/cleaning-companies.jpg"
               alt=""
             />
-            <div className="w-2/5 my-auto">
-              <h1 className="text-4xl  font-semibold">
+            <div className="md:w-2/5 w-full py-3 my-auto">
+              <h1 className="md:text-4xl text-2xl  font-semibold">
                 Professional Home Cleaning, Anytime You Need
               </h1>
               <p>
@@ -51,17 +51,17 @@ const Banner = () => {
         </SwiperSlide>
         <SwiperSlide>
           <div className="px-4 py-4 md:flex gap-5 bg-linear-to-r from-gray-800 via-gray-700 to-orange-500
-            dark:from-gray-900 dark:via-gray-800 dark:to-orange-600 dark:bg-black">
+            dark:from-gray-900 dark:via-gray-800 dark:to-orange-600">
             <img
-              className="w-3/5 max-h-[350px] rounded-xl"
+              className="md:w-3/5 w:full max-h-[350px] rounded-xl"
               src="https://i.ibb.co.com/NdMzWCr3/male-professional-automotive-supervisor-advises-and-inspects-black-female-mechanic-worker-about-liqu.jpg"
               alt=""
             />
-            <div className="w-2/5 my-auto">
-              <h1 className="text-4xl  font-semibold">
+            <div className="md:w-2/5 w-full my-auto">
+              <h1 className="md:text-4xl text-2xl text-white md:text-black font-semibold">
                 Expert Repair & Maintenance Services
               </h1>
-              <p>
+              <p className="text-white md:text-black">
                 From plumbing to electrical work, our certified professionals
                 ensure reliable repairs and quick fixes for your home
               </p>
@@ -75,12 +75,12 @@ const Banner = () => {
           <div className="px-4 py-4 md:flex gap-5 bg-linear-to-r from-pink-100 via-pink-200 to-purple-200
             dark:from-purple-700 dark:via-purple-800 dark:to-indigo-900">
             <img
-              className="w-3/5 max-h-[350px] rounded-xl"
+              className="md:w-3/5 w:full  max-h-[350px] rounded-xl"
               src="https://i.ibb.co.com/N6TdjDwR/istockphoto-1181702511-612x612.jpg"
               alt=""
             />
-            <div className="w-2/5 my-auto">
-              <h1 className="text-4xl  font-semibold">
+            <div className="md:w-2/5 w-full my-auto">
+              <h1 className="md:text-4xl text-2xl font-semibold">
                 Pamper Yourself with Premium Beauty Care
               </h1>
               <p>

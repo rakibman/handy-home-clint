@@ -8,7 +8,7 @@ const Home = () => {
     <div>
       <main>
         {/* banner section  */}
-        <section className="max-w-[1200px] mx-auto min-h-[350px]">
+        <section className="w-[400px] md:w-[1200px] mx-auto min-h-[350px]">
           <Banner />
         </section>
         <section className="max-w-[1000px] mx-auto">

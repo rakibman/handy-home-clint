@@ -3,7 +3,7 @@ import React, { useContext } from "react";
 // import { useNavigate } from "react-router";
 import Swal from "sweetalert2";
 import { AuthContext } from "../context/AuthContext";
-import { Link } from "react-router";
+import { Link} from "react-router";
 import toast from "react-hot-toast";
 
 const BookingCard = ({ booked, setRefresh }) => {
@@ -13,12 +13,12 @@ const BookingCard = ({ booked, setRefresh }) => {
   const handleDlete = () => {
     Swal.fire({
       title: "Are you sure?",
-      text: "You won't be able to Delete this!",
+      text: "You won't be able to Cancel this!",
       icon: "warning",
       showCancelButton: true,
       confirmButtonColor: "#3085d6",
       cancelButtonColor: "#d33",
-      confirmButtonText: "Yes, delete it!",
+      confirmButtonText: "Yes, Cancel it!",
     }).then((result) => {
       if (result.isConfirmed) {
         fetch(
@@ -32,8 +32,8 @@ const BookingCard = ({ booked, setRefresh }) => {
         )
           .then(() => {
             Swal.fire({
-              title: "Deleted!",
-              text: "Your booking has been deleted.",
+              title: "Canceld!",
+              text: "Your booking has been Canceld.",
               icon: "success",
             });
             setRefresh(true);
@@ -84,18 +84,19 @@ const BookingCard = ({ booked, setRefresh }) => {
       body: JSON.stringify(formData),
     })
       .then(() => {
-        toast.success("successfully added!");
+        toast.success("Review added!");
         handleSubmit(e, star);
+        setRefresh(true);
       })
       .catch((err) => console.log(err));
   };
   return (
-    <div className=" flex gap-40 bg-base-100 dark:bg-white/10 px-5 py-3 rounded-xl justify-between items-center ">
+    <div className=" lg:flex gap-40 bg-base-100 dark:bg-white/10 px-5 py-3 rounded-xl justify-between items-center ">
       <div>
         <img className="size-10 rounded-box" src={booked.thumbnail} />
       </div>
 
-      <div>
+      <div className="py-3">
         <div className="text-xl font-semibold py-1">
           <span>Booked By :</span> {booked.name}
         </div>
@@ -129,7 +130,7 @@ const BookingCard = ({ booked, setRefresh }) => {
       {/* Open the modal using document.getElementById('ID').showModal() method */}
       <dialog
         id={`my_modal${id}`}
-        className="modal modal-bottom sm:modal-middle"
+        className="modal modal-bottom sm:modal-middle p-5"
       >
         <div className="modal-box">
           <form
