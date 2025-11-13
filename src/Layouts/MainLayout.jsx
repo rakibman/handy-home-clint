@@ -12,7 +12,7 @@ const MainLayout = () => {
       <main className="flex-1 max-w-[1200px] mx-auto my-8">
         <Outlet />
       </main>
-      <footer className="w-full border-red-500 border mx-auto">
+      <footer className="w-full mx-auto">
         <Footer />
       </footer>
     </div>
