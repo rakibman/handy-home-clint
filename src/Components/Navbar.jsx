@@ -147,8 +147,8 @@ const Navbar = () => {
         </div>
         <div>
           <img
-            className="max-w-[60px] min-h-[50px]"
-            src="https://i.ibb.co.com/N6BjRvHK/pngtree-house-cleaning-logo-icon-design-vector-template-isolated-image-309859.jpg"
+            className="max-w-[60px] min-h-[50px] dark:bg-white rounded-xl"
+            src="https://i.ibb.co.com/bRXNTCXW/58e17cf9-5137-4467-877b-f5adfbd3b2ec.png"
             alt=""
           />
         </div>
