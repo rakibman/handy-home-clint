@@ -59,8 +59,7 @@ const BookingCard = ({ booked, setRefresh }) => {
       body: JSON.stringify(formData),
     })
       .then(() => {
-        toast.success("Successfully updated!");
-        // navigate("/services");
+        toast.success("Successfully updated!"); 
       })
       .catch((err) => {
         console.log(err);
@@ -75,7 +74,6 @@ const BookingCard = ({ booked, setRefresh }) => {
       experince: e.target.experince.value,
       product_id: serv_id,
     };
-    console.log(formData);
     fetch("https://handy-home-server.vercel.app/review", {
       method: "POST",
       headers: {

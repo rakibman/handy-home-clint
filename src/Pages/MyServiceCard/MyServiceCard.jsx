@@ -23,9 +23,8 @@ const MyServiceCard = ({ service }) => {
             "Content-Type": "application/json",
           },
         })
-          .then((res) => res.json())
-          .then((data) => {
-            console.log(data);
+          .then(() => {
+
             navigate("/services");
 
             Swal.fire({

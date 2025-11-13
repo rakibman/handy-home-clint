@@ -6,7 +6,6 @@ const Update = () => {
   const navigate = useNavigate();
   const { id } = useParams();
   const data = useLoaderData();
-  console.log(data);
 
   const handleSubmit = (e) => {
     e.preventDefault();

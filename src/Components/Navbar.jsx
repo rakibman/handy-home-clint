@@ -7,16 +7,17 @@ import { AiOutlineProduct } from "react-icons/ai";
 import { MdAssignmentAdd } from "react-icons/md";
 import { TbBrandBooking } from "react-icons/tb";
 import { CgProfile } from "react-icons/cg";
+import toast from "react-hot-toast";
 const Navbar = () => {
   const { user, signOutUser } = useContext(AuthContext);
   const [theme, setTheme] = useState(localStorage.getItem("theme") || "light");
   const handelSignOut = () => {
     signOutUser()
-      .then((res) => {
-        console.log(res);
+      .then(() => {
+        toast.success('sign out successfull!')
       })
       .catch((err) => {
-        console.log(err);
+        toast.error(err.code)
       });
   };
 

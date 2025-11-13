@@ -55,7 +55,6 @@ const ServiceDetals = () => {
       thumbnail: thumbnail,
       booked_date: new Date(),
     };
-    console.log(formData);
     fetch("https://handy-home-server.vercel.app/my-bookings", {
       method: "POST",
       headers: {

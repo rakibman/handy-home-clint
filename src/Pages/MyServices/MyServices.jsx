@@ -7,7 +7,6 @@ const MyServices = () => {
   const { user } = useContext(AuthContext);
 
   const [myServices, setMyservices] = useState([]);
-  console.log(myServices);
   useEffect(() => {
     fetch(
       `https://handy-home-server.vercel.app/my-services?email=${user?.email}`
@@ -15,7 +14,6 @@ const MyServices = () => {
       .then((res) => res.json())
       .then((data) => {
         setMyservices(data);
-        // console.log(data);
       });
   }, [user?.email]);
   if (!myServices) {

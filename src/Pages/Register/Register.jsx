@@ -23,8 +23,8 @@ const Register = () => {
       return;
     }
     createUser(email, password)
-      .then((res) => {
-        console.log(res.user);
+      .then(() => {
+
         toast.success("Register success!");
         updateUserProfile({ displayName: name, photoURL: photo });
         setUser({ ...user, displayName: name, photoURL: photo });

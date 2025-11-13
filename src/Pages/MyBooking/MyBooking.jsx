@@ -9,7 +9,6 @@ const MyBooking = () => {
     fetch("https://handy-home-server.vercel.app/my-bookings")
       .then((res) => res.json())
       .then((data) => {
-        // console.log(data);
         setBooking(data);
       });
   }, [refresh]);
