@@ -5,7 +5,7 @@ import { Link } from 'react-router';
 
 const Error = () => {
     return (
-         <div className=" flex flex-col items-center justify-center h-screen  text-black text-center">
+         <div className=" flex flex-col items-center justify-center h-screen  text-center">
       <h1 className="text-9xl font-extrabold text-transparent bg-clip-text bg-linear-to-r from-cyan-400 to-blue-600">
         404
       </h1>

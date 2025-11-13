@@ -16,55 +16,53 @@ export const router = createBrowserRouter([
   {
     path: "/",
     element: <MainLayout />,
+    errorElement: <Error />, // ✅ Proper way to handle errors
     children: [
       {
         index: true,
         element: <Home />,
       },
       {
-        path: "/login",
+        path: "login",
         element: <Login />,
       },
       {
-        path: "/profile",
-        element: <Profile />,
-      },
-      {
-        path: "/register",
+        path: "register",
         element: <Register />,
       },
       {
-        path: "/services",
+        path: "profile",
+        element: <Profile />,
+      },
+      {
+        path: "services",
         element: <Services />,
       },
       {
-        path: "/my-services",
+        path: "my-services",
         element: <MyServices />,
       },
       {
-        path: "/my-bookings",
+        path: "my-bookings",
         element: <MyBooking />,
       },
       {
-        path: "/add-service",
+        path: "add-service",
         element: <AddService />,
       },
       {
-        path: "/service-detals/:id",
+        path: "service-detals/:id",
         element: <ServiceDetals />,
       },
       {
-        path: "/update/:id",
+        path: "update/:id",
         element: <Update />,
         loader: ({ params }) =>
           fetch(`https://handy-home-server.vercel.app/services/${params.id}`),
-      },
-      {
-        path: "*",
-        element: <Error />,
-      },
+      }, 
     ],
   },
+  // ✅ Global catch-all route (outside layout)
   {
     path: "*",
     element: <Error />,
