@@ -1,8 +1,9 @@
 import React from "react";
+import { FaFacebook, FaInstagram, FaLinkedin } from "react-icons/fa";
+import { FaXTwitter } from "react-icons/fa6";
 
 const Footer = () => {
   return (
-
     <footer className=" w-fit bg-gray-900 text-gray-300 py-12 px-6 md:px-16">
       <div className=" mx-auto grid grid-cols-1 md:grid-cols-4 gap-10">
         {/* Brand Section */}
@@ -13,17 +14,17 @@ const Footer = () => {
             electronics, and home essentials. Shop smart, live better.
           </p>
           <div className="flex space-x-4 mt-4">
-            <a href="#" className="hover:text-orange-400">
-              <i className="fab fa-facebook-f"></i>
+            <a href="https://www.facebook.com/" className="hover:text-orange-400">
+              <FaFacebook />
             </a>
-            <a href="#" className="hover:text-orange-400">
-              <i className="fab fa-instagram"></i>
+            <a href="https://www.instagram.com/" className="hover:text-orange-400">
+              <FaInstagram />
             </a>
-            <a href="#" className="hover:text-orange-400">
-              <i className="fab fa-twitter"></i>
+            <a href="https://x.com/" className="hover:text-orange-400">
+              <FaXTwitter />
             </a>
-            <a href="#" className="hover:text-orange-400">
-              <i className="fab fa-linkedin-in"></i>
+            <a href="https://www.linkedin.com/jobs?mcid=7389968267391488000&src=go-pa&trk=sem-ga_campid.23205437885_asid._crid._kw._d.c_tid._n.x_mt._geo.9069452&cid=&gclsrc=aw.ds&gad_source=1&gad_campaignid=23200214304&gbraid=0AAAAAogN_LxoL7sDvZvIJLyk9U9Xd9qdK&gclid=CjwKCAiAoNbIBhB5EiwAZFbYGAg-xzwSLPzkR2r0RX8N1DhmuJf42iq-WFKs3tTLdsLFmQaYcW5f5xoCPGgQAvD_BwE" className="hover:text-orange-400">
+              <FaLinkedin />
             </a>
           </div>
         </div>
@@ -33,12 +34,12 @@ const Footer = () => {
           <h3 className="text-lg font-semibold text-white mb-4">Quick Links</h3>
           <ul className="space-y-2 text-sm">
             <li>
-              <a href="#" className="hover:text-orange-400">
+              <a href="/" className="hover:text-orange-400">
                 Home
               </a>
             </li>
             <li>
-              <a href="#" className="hover:text-orange-400">
+              <a href="/services" className="hover:text-orange-400">
                 Shop
               </a>
             </li>
@@ -96,7 +97,7 @@ const Footer = () => {
               placeholder="Enter your email"
               className="w-full sm:w-auto flex-1 px-3 py-2 rounded-md bg-gray-800 text-gray-200 focus:outline-none focus:ring-2 focus:ring-orange-400"
             />
-            <button className="bg-gradient-to-r from-orange-500 to-yellow-500 text-white px-4 py-2 rounded-md hover:from-yellow-500 hover:to-orange-600 transition-all duration-300">
+            <button className="bg-linear-to-r from-orange-500 to-yellow-500 text-white px-4 py-2 rounded-md hover:from-yellow-500 hover:to-orange-600 transition-all duration-300">
               Subscribe
             </button>
           </form>
