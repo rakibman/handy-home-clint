@@ -87,25 +87,19 @@ const AddService = () => {
                 defaultValue={""}
                 name="category"
                 required
-                className="select w-full rounded-full focus:border-0 focus:outline-gray-200 bg-white/40"
+                className="select w-full rounded-full focus:border-0 focus:outline-gray-200 bg-white/40 text-black"
               >
                 <option value="" disabled>
                   Select category
                 </option>
-                <option value="Cleaning & Maintenance">
-                  Cleaning & Maintenance
+                <option value="Repair & Maintenance">
+                  Repair & Maintenance
                 </option>
-                <option value="Electrical & Appliances">
-                  Electrical & Appliances
-                </option>
-                <option value="Plumbing">Plumbing</option>
-                <option value="Beauty & Grooming">Beauty & Grooming</option>
-                <option value="Gardening">Gardening</option>
-                <option value="Laundry & Ironing">Laundry & Ironing</option>
-                <option value="Home Painting">Home Painting</option>
+                <option value="Cleaning Services">Cleaning Services</option>
                 <option value="Home Improvement">Home Improvement</option>
-                <option value="Vehicle Services (at Home)">
-                  Vehicle Services (at Home)
+                <option value="Outdoor & Gardening">Outdoor & Gardening</option>
+                <option value="Personal & Lifestyle">
+                  Personal & Lifestyle
                 </option>
                 <option value="Emergency Services">Emergency Services</option>
               </select>
