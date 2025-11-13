@@ -1,7 +1,7 @@
 import React from "react";
 import Banner from "../Banner/Banner";
 import SortServices from "../SortServices/SortServices";
-import { Link } from "react-router";
+import PamServ from "../../Components/PaymentAndServices/PamServ";
 
 const Home = () => {
   return (
@@ -14,7 +14,7 @@ const Home = () => {
         <section className="max-w-[1000px] mx-auto">
           <SortServices />
         </section>
-        <section className=" py-16 px-6 text-center">
+        <section className="py-16 px-6 text-center">
           <h2 className="text-3xl font-bold text-gray-800 mb-6 dark:text-white/90">
             Why Choose Us
           </h2>
@@ -24,92 +24,56 @@ const Home = () => {
           </p>
 
           <div className="grid md:grid-cols-3 gap-8 max-w-5xl mx-auto">
-            <div className="bg-white shadow-lg rounded-2xl p-6 hover:scale-105 transition">
-              <h3 className="text-xl font-semibold text-blue-600 mb-3">
+            {/* Card 1: Blue Gradient */}
+            <div
+              className="bg-linear-to-r from-blue-200 via-blue-300 to-blue-400 
+                    dark:from-blue-800 dark:via-blue-900 dark:to-indigo-900
+                    shadow-lg rounded-2xl p-6 hover:scale-105 transition-transform text-left"
+            >
+              <h3 className="text-xl font-semibold text-blue-600 dark:text-blue-300 mb-3">
                 Expert Team
               </h3>
-              <p className="text-gray-600">
+              <p className="text-gray-700 dark:text-gray-200">
                 Our experienced professionals ensure every project is handled
                 with care and precision.
               </p>
             </div>
 
-            <div className="bg-white shadow-lg rounded-2xl p-6 hover:scale-105 transition">
-              <h3 className="text-xl font-semibold text-blue-600 mb-3">
+            {/* Card 2: Pink → Purple Gradient */}
+            <div
+              className="bg-linear-to-r from-pink-100 via-pink-200 to-purple-200
+                    dark:from-purple-700 dark:via-purple-800 dark:to-indigo-900
+                    shadow-lg rounded-2xl p-6 hover:scale-105 transition-transform text-left"
+            >
+              <h3 className="text-xl font-semibold text-pink-600 dark:text-pink-300 mb-3">
                 Quality Service
               </h3>
-              <p className="text-gray-600">
+              <p className="text-gray-700 dark:text-gray-200">
                 We focus on delivering top-notch solutions that meet your goals
                 and expectations.
               </p>
             </div>
 
-            <div className="bg-white shadow-lg rounded-2xl p-6 hover:scale-105 transition">
-              <h3 className="text-xl font-semibold text-blue-600 mb-3">
+            {/* Card 3: Peach Gradient */}
+            <div
+              className="bg-[linear-gradient(120deg,#feecdc,#fde2e4)]
+                    dark:bg-[linear-gradient(120deg,#2c2c2c,#1a1a1a)]
+                    shadow-lg rounded-2xl p-6 hover:scale-105 transition-transform text-left"
+            >
+              <h3 className="text-xl font-semibold text-orange-500 dark:text-orange-400 mb-3">
                 Customer Support
               </h3>
-              <p className="text-gray-600">
+              <p className="text-gray-700 dark:text-gray-200">
                 We’re here 24/7 to support you and ensure your satisfaction
                 every step of the way.
               </p>
             </div>
           </div>
         </section>
-        <section className=" py-16">
-          <div className="max-w-5xl mx-auto px-6">
-            <h2 className="text-3xl font-bold text-center text-gray-800 mb-10">
-              Buy Products with Easy Payment Options
-            </h2>
 
-            <div className="grid md:grid-cols-3 gap-8">
-              {/* Payment Options */}
-              <div className="bg-white/20  shadow-lg rounded-xl p-6 flex flex-col items-center text-center hover:scale-105 transition-transform">
-                <img
-                  src="https://i.ibb.co.com/LX2NLqyS/pexels-photo-2988232.webp"
-                  alt="Payment"
-                  className="w-full h-50 rounded-xl mb-4"
-                />
-                <h3 className="text-xl font-semibold mb-2">
-                  Multiple Payment Options
-                </h3>
-                <p className="text-gray-500">
-                  Pay with credit/debit cards, mobile wallets, or net banking
-                  easily and securely.
-                </p>
-              </div>
-
-              {/* EMI Services */}
-              <div className="bg-white/20 shadow-lg rounded-xl p-6 flex flex-col items-center text-center hover:scale-105 transition-transform">
-                <img
-                  src="https://i.ibb.co.com/Rksh6XQ3/istockphoto-1276975617-612x612.jpg"
-                  alt="EMI"
-                  className="w-full h-50 rounded-xl mb-4"
-                />
-                <h3 className="text-xl font-semibold mb-2">EMI Services</h3>
-                <p className="text-gray-500">
-                  Choose flexible EMI plans and pay for your products over time
-                  with low interest rates.
-                </p>
-              </div>
-
-              {/* Buy Product */}
-              <div className="bg-white/20 shadow-lg rounded-xl p-6 flex flex-col items-center text-center hover:scale-105 transition-transform">
-                <img
-                  src="https://i.ibb.co.com/svGqxsjX/buy-cart-ecommernce-shopping-icon-29.png"
-                  alt="Buy"
-                  className="w-full h-50 rounded-xl mb-4"
-                />
-                <h3 className="text-xl font-semibold mb-2">Buy Products</h3>
-                <p className="text-gray-500">
-                  Browse our catalog and purchase your favorite products
-                  instantly with secure checkout.
-                </p>
-                <Link to={'/services'} className="mt-4 px-6 py-2 bg-blue-600 text-white font-semibold rounded-lg hover:bg-blue-700 transition">
-                  Shop Now
-                </Link>
-              </div>
-            </div>
-          </div>
+        {/* our service and pament section  */}
+        <section>
+          <PamServ />
         </section>
       </main>
     </div>

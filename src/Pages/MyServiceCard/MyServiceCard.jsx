@@ -41,7 +41,9 @@ const MyServiceCard = ({ service }) => {
     });
   };
   return (
-    <tr className="w-[900px] bg-white/25 backdrop-blur-xl border border-white/40 shadow-lg text-black flex justify-between items-center rounded-xl">
+    <tr className="w-[900px] bg-white/25 backdrop-blur-xl border border-white/40 shadow-lg
+            dark:bg-white/10 dark:border-white/20
+            text-gray-800 dark:text-gray-100 flex justify-between items-center rounded-xl">
       <td className="w-1/3">
         <div className="flex items-center gap-3 ">
           <div className="avatar">
