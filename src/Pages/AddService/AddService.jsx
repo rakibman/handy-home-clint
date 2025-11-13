@@ -31,7 +31,12 @@ const AddService = () => {
       .catch((err) => console.log(err));
   };
   return (
-    <div className="card border-gray-200 dark:text-white w-full  mx-auto shadow-2xl rounded-2xl">
+    <div
+      className="card   bg-[linear-gradient(10deg,#a3bffa,#6b82f4)]
+            dark:bg-[linear-gradient(135deg,#1e2a4f,#0f1830)]
+            p-6
+            text-gray-800 dark:text-white w-full  mx-auto shadow-2xl rounded-2xl"
+    >
       <div className="card-body p-6 relative">
         <h2 className="text-2xl font-bold text-center mb-6">
           Add Your Service
@@ -47,41 +52,47 @@ const AddService = () => {
                 type="text"
                 name="name"
                 required
-                className="input w-full rounded-full focus:border-0 focus:outline-gray-200 bg-gray-200"
+                className="input w-full rounded-full focus:border-0 focus:outline-gray-200 bg-white/40"
                 placeholder="Enter Your Name"
               />
             </div>
             {/* Service Field */}
             <div>
-              <label className="label py-3 font-medium dark:text-white">Service Name</label>
+              <label className="label py-3 font-medium dark:text-white">
+                Service Name
+              </label>
               <input
                 type="text"
                 name="service_name"
                 required
-                className="input w-full rounded-full focus:border-0 focus:outline-gray-200 bg-gray-200"
+                className="input w-full rounded-full focus:border-0 focus:outline-gray-200 bg-white/40"
                 placeholder="Enter Your service name"
               />
             </div>
             {/* Price Field */}
             <div>
-              <label className="label py-3 font-medium dark:text-white">Service Price</label>
+              <label className="label py-3 font-medium dark:text-white">
+                Service Price
+              </label>
               <input
                 type="text"
                 name="price"
                 required
-                className="input w-full rounded-full focus:border-0 focus:outline-gray-200 bg-gray-200"
+                className="input w-full rounded-full focus:border-0 focus:outline-gray-200 bg-white/40"
                 placeholder="Enter Your service Price"
               />
             </div>
 
             {/* Category Dropdown */}
             <div>
-              <label className="label py-3 font-medium dark:text-white">Category</label>
+              <label className="label py-3 font-medium dark:text-white">
+                Category
+              </label>
               <select
                 defaultValue={""}
                 name="category"
                 required
-                className="select w-full rounded-full focus:border-0 focus:outline-gray-200 bg-gray-200"
+                className="select w-full rounded-full focus:border-0 focus:outline-gray-200 bg-white/40"
               >
                 <option value="" disabled>
                   Select category
@@ -106,12 +117,14 @@ const AddService = () => {
             </div>
             {/* Thumbnail URL */}
             <div>
-              <label className="label py-3 font-medium dark:text-white">Thumbnail URL</label>
+              <label className="label py-3 font-medium dark:text-white">
+                Thumbnail URL
+              </label>
               <input
                 type="url"
                 name="thumbnail"
                 required
-                className="input w-full rounded-full focus:border-0 focus:outline-gray-200 bg-gray-200"
+                className="input w-full rounded-full focus:border-0 focus:outline-gray-200 bg-white/40"
                 placeholder="https://example.com/image.jpg"
               />
             </div>
@@ -119,12 +132,14 @@ const AddService = () => {
           </div>
           {/* Description Textarea */}
           <div>
-            <label className="label py-3 font-medium dark:text-white">Description</label>
+            <label className="label py-3 font-medium dark:text-white">
+              Description
+            </label>
             <textarea
               name="description"
               required
               rows="3"
-              className="textarea w-full rounded-2xl focus:border-0 focus:outline-gray-200 h-[100px] bg-gray-200"
+              className="textarea w-full rounded-2xl focus:border-0 focus:outline-gray-200 h-[100px] bg-white/40"
               placeholder="Enter description"
             ></textarea>
           </div>
@@ -132,7 +147,11 @@ const AddService = () => {
           {/* Submit Button */}
           <button
             type="submit"
-            className="btn w-full text-white mt-6 rounded-full bg-linear-to-r from-pink-500 to-red-500 hover:from-pink-500 hover:to-red-700"
+            className="w-full px-6 py-2 rounded-full font-semibold
+                   bg-linear-to-r from-pink-500 to-purple-600
+                   dark:from-pink-600 dark:to-purple-700
+                   text-white hover:from-pink-500 hover:to-purple-600
+                   transition"
           >
             Add Service
           </button>
