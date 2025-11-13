@@ -96,22 +96,17 @@ const Update = () => {
                 <option value="" disabled>
                   Select category
                 </option>
-                <option value="Cleaning & Maintenance">
-                  Cleaning & Maintenance
-                </option>
-                <option value="Electrical & Appliances">
-                  Electrical & Appliances
-                </option>
+                <option value="">Select a Service</option>
+                <option value="Cleaning">Home Cleaning</option>
                 <option value="Plumbing">Plumbing</option>
-                <option value="Beauty & Grooming">Beauty & Grooming</option>
+                <option value="Electrical">Electrical</option>
+                <option value="Window Cleaning">Window Cleaning</option>
+                <option value="Appliance Repair">Appliance Repair</option>
                 <option value="Gardening">Gardening</option>
-                <option value="Laundry & Ironing">Laundry & Ironing</option>
-                <option value="Home Painting">Home Painting</option>
-                <option value="Home Improvement">Home Improvement</option>
-                <option value="Vehicle Services (at Home)">
-                  Vehicle Services (at Home)
-                </option>
-                <option value="Emergency Services">Emergency Services</option>
+                <option value="Furniture Assembly">Furniture Assembly</option>
+                <option value="Painting">Painting</option>
+                <option value="AC Service">AC Service</option>
+                <option value="Pest Control">Pest Control</option>
               </select>
             </div>
             {/* Thumbnail URL */}

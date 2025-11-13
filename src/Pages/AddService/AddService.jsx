@@ -92,16 +92,17 @@ const AddService = () => {
                 <option value="" disabled>
                   Select category
                 </option>
-                <option value="Repair & Maintenance">
-                  Repair & Maintenance
-                </option>
-                <option value="Cleaning Services">Cleaning Services</option>
-                <option value="Home Improvement">Home Improvement</option>
-                <option value="Outdoor & Gardening">Outdoor & Gardening</option>
-                <option value="Personal & Lifestyle">
-                  Personal & Lifestyle
-                </option>
-                <option value="Emergency Services">Emergency Services</option>
+                <option value="">Select a Service</option>
+                <option value="Cleaning">Home Cleaning</option>
+                <option value="Plumbing">Plumbing</option>
+                <option value="Electrical">Electrical</option>
+                <option value="Window Cleaning">Window Cleaning</option>
+                <option value="Appliance Repair">Appliance Repair</option>
+                <option value="Gardening">Gardening</option>
+                <option value="Furniture Assembly">Furniture Assembly</option>
+                <option value="Painting">Painting</option>
+                <option value="AC Service">AC Service</option>
+                <option value="Pest Control">Pest Control</option>
               </select>
             </div>
             {/* Thumbnail URL */}
